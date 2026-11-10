@@ -344,6 +344,80 @@ footer a {
     </p>
 
 </footer>
+<section class="section" id="gps">
+    <h2>GTI GPS Location Detection</h2>
 
+    <p class="subtitle">
+        Detect your location securely with your permission.
+    </p>
+
+    <div class="card" style="max-width:600px;margin:auto;text-align:center;">
+
+        <button onclick="detectLocation()"
+        style="padding:14px 25px;background:#168de0;
+        color:white;border:none;border-radius:6px;
+        font-weight:bold;">
+            Detect My Location
+        </button>
+
+        <p id="gpsStatus" style="margin-top:20px;">
+            Waiting for location permission.
+        </p>
+
+        <div id="gpsResult"></div>
+
+    </div>
+</section>
+
+<script>
+function detectLocation() {
+
+    const status = document.getElementById("gpsStatus");
+    const result = document.getElementById("gpsResult");
+
+    result.innerHTML = "";
+
+    if (!navigator.geolocation) {
+        status.textContent = "GPS is not supported by this browser.";
+        return;
+    }
+
+    status.textContent = "Requesting location permission...";
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(position) {
+
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            const accuracy = position.coords.accuracy;
+
+            status.textContent = "Location detected successfully!";
+
+            result.innerHTML =
+                "<p>Latitude: " + latitude + "</p>" +
+                "<p>Longitude: " + longitude + "</p>" +
+                "<p>Accuracy: " + Math.round(accuracy) + " metres</p>" +
+                "<p><a target='_blank' rel='noopener' href='https://www.google.com/maps?q=" +
+                latitude + "," + longitude +
+                "' style='color:#35b6ff;'>View on Google Maps</a></p>";
+        },
+
+        function(error) {
+
+            status.textContent =
+                "Location unavailable. Please check your GPS permission and try again.";
+
+        },
+
+        {
+            enableHighAccuracy: true,
+            timeout: 15000,
+            maximumAge: 0
+        }
+
+    );
+}
+    </script>
 </body>
 </html>
