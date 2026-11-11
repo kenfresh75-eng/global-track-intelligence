@@ -4,12 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="GTI Global Track Intelligence - A secure global location intelligence platform.">
+<meta name="description" content="GTI Global Track Intelligence - Secure global location intelligence and authorised GPS tracking.">
 
 <title>GTI | Global Track Intelligence</title>
 
-<style>
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
+<style>
 * {
     margin: 0;
     padding: 0;
@@ -19,7 +21,7 @@
 body {
     font-family: Arial, sans-serif;
     background: #08111f;
-    color: #ffffff;
+    color: #fff;
     line-height: 1.6;
 }
 
@@ -46,7 +48,7 @@ header {
 nav a {
     color: #d4dfed;
     text-decoration: none;
-    margin-left: 20px;
+    margin-left: 15px;
     font-size: 14px;
 }
 
@@ -55,13 +57,10 @@ nav a:hover {
 }
 
 .hero {
-    padding: 100px 7%;
+    padding: 85px 7%;
     text-align: center;
     background: linear-gradient(
-        135deg,
-        #08111f,
-        #102d4b,
-        #08111f
+        135deg, #08111f, #102d4b, #08111f
     );
 }
 
@@ -78,7 +77,6 @@ nav a:hover {
     color: #b7c6d9;
     max-width: 650px;
     margin: auto;
-    font-size: 17px;
 }
 
 .badge {
@@ -94,7 +92,7 @@ nav a:hover {
 
 .button {
     display: inline-block;
-    margin-top: 30px;
+    margin-top: 25px;
     padding: 14px 27px;
     background: #168de0;
     color: white;
@@ -103,12 +101,8 @@ nav a:hover {
     font-weight: bold;
 }
 
-.button:hover {
-    background: #0871bb;
-}
-
 .section {
-    padding: 65px 7%;
+    padding: 60px 7%;
 }
 
 .section h2 {
@@ -120,14 +114,13 @@ nav a:hover {
 .subtitle {
     text-align: center;
     color: #a9b9cc;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(
-        auto-fit,
-        minmax(220px, 1fr)
+        auto-fit, minmax(220px, 1fr)
     );
     gap: 22px;
 }
@@ -135,14 +128,8 @@ nav a:hover {
 .card {
     background: #102137;
     border: 1px solid #263e58;
-    padding: 28px;
+    padding: 25px;
     border-radius: 10px;
-    transition: 0.3s;
-}
-
-.card:hover {
-    border-color: #35b6ff;
-    transform: translateY(-4px);
 }
 
 .card h3 {
@@ -155,17 +142,75 @@ nav a:hover {
     font-size: 14px;
 }
 
-.status {
-    background: #0d1b2e;
-    padding: 45px 7%;
-    text-align: center;
-    border-top: 1px solid #203650;
-    border-bottom: 1px solid #203650;
+.gps-panel {
+    max-width: 800px;
+    margin: auto;
+    background: #102137;
+    border: 1px solid #263e58;
+    padding: 25px;
+    border-radius: 12px;
 }
 
-.status p {
-    color: #a9b9cc;
-    margin-top: 10px;
+.gps-panel h3 {
+    color: #35b6ff;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.status {
+    text-align: center;
+    color: #35b6ff;
+    margin: 15px 0;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.controls button {
+    padding: 13px 20px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.start {
+    background: #168de0;
+}
+
+.stop {
+    background: #d93636;
+}
+
+.gps-data {
+    margin-top: 20px;
+}
+
+.gps-data p {
+    padding: 10px 5px;
+    border-bottom: 1px solid #263e58;
+    overflow-wrap: anywhere;
+}
+
+#map {
+    width: 100%;
+    height: 380px;
+    margin-top: 25px;
+    border-radius: 10px;
+    border: 1px solid #35b6ff;
+    z-index: 1;
+}
+
+.google-link {
+    display: inline-block;
+    color: #35b6ff;
+    margin-top: 18px;
 }
 
 footer {
@@ -181,8 +226,7 @@ footer a {
     margin: 0 10px;
 }
 
-@media(max-width: 650px) {
-
+@media(max-width:650px) {
     header {
         flex-direction: column;
         gap: 15px;
@@ -192,45 +236,36 @@ footer a {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 12px;
+        gap: 10px;
     }
 
     nav a {
         margin: 0;
     }
 
-    .hero {
-        padding: 75px 6%;
-    }
-
     .hero h1 {
         font-size: 32px;
     }
 
-    .section {
-        padding: 50px 6%;
+    #map {
+        height: 300px;
     }
-
 }
-
 </style>
 </head>
 
 <body>
 
 <header>
-
-    <div class="logo">
-        GTI<span>.</span>
-    </div>
+    <div class="logo">GTI<span>.</span></div>
 
     <nav>
         <a href="#home">Home</a>
         <a href="#services">Services</a>
         <a href="#technology">Technology</a>
+        <a href="#gps">GPS Tracking</a>
         <a href="#about">About</a>
     </nav>
-
 </header>
 
 <section class="hero" id="home">
@@ -239,20 +274,17 @@ footer a {
         GLOBAL LOCATION INTELLIGENCE
     </div>
 
-    <h1>
-        Welcome to <span>GTI</span>
-    </h1>
+    <h1>Welcome to <span>GTI</span></h1>
 
     <p>
         Global Track Intelligence is a technology
-        platform designed to bring together
-        geographical intelligence, authorised
-        location services and advanced digital
-        monitoring capabilities.
+        platform designed to bring together geographical
+        intelligence, authorised location services and
+        advanced digital monitoring capabilities.
     </p>
 
-    <a href="#services" class="button">
-        Explore GTI
+    <a href="#gps" class="button">
+        Open GPS Tracking
     </a>
 
 </section>
@@ -303,14 +335,85 @@ footer a {
 
 </section>
 
-<section class="status" id="technology">
+<section class="section" id="technology">
 
     <h2>Technology Without Boundaries</h2>
 
-    <p>
+    <p class="subtitle">
         Building a secure, scalable and intelligent
         global technology platform.
     </p>
+
+</section>
+
+<section class="section" id="gps">
+
+    <h2>GTI Live GPS Tracking</h2>
+
+    <p class="subtitle">
+        Track your own device location with your permission.
+    </p>
+
+    <div class="gps-panel">
+
+        <h3>LIVE TRACKING DASHBOARD</h3>
+
+        <p id="gpsStatus" class="status">
+            Tracking is currently stopped.
+        </p>
+
+        <div class="controls">
+
+            <button class="start" onclick="startTracking()">
+                START TRACKING
+            </button>
+
+            <button class="stop" onclick="stopTracking()">
+                STOP TRACKING
+            </button>
+
+        </div>
+
+        <div class="gps-data">
+
+            <p>
+                Latitude:
+                <strong id="latitude">Waiting...</strong>
+            </p>
+
+            <p>
+                Longitude:
+                <strong id="longitude">Waiting...</strong>
+            </p>
+
+            <p>
+                GPS Accuracy:
+                <strong id="accuracy">Waiting...</strong>
+            </p>
+
+            <p>
+                Tracking Status:
+                <strong id="trackingStatus">STOPPED</strong>
+            </p>
+
+            <p>
+                Last Update:
+                <strong id="lastUpdate">Not available</strong>
+            </p>
+
+        </div>
+
+        <a id="googleMaps"
+           class="google-link"
+           href="#gps"
+           target="_blank"
+           rel="noopener">
+            View Location on Google Maps
+        </a>
+
+        <div id="map"></div>
+
+    </div>
 
 </section>
 
@@ -344,69 +447,194 @@ footer a {
     </p>
 
 </footer>
-<section class="section" id="gps">
-    <h2>GTI GPS Location Detection</h2>
 
-    <p class="subtitle">
-        Detect your location securely with your permission.
-    </p>
-
-    <div class="card" style="max-width:600px;margin:auto;text-align:center;">
-
-        <button onclick="detectLocation()"
-        style="padding:14px 25px;background:#168de0;
-        color:white;border:none;border-radius:6px;
-        font-weight:bold;">
-            Detect My Location
-        </button>
-
-        <p id="gpsStatus" style="margin-top:20px;">
-            Waiting for location permission.
-        </p>
-
-        <div id="gpsResult"></div>
-
-    </div>
-</section>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-function detectLocation() {
 
-    const status = document.getElementById("gpsStatus");
-    const result = document.getElementById("gpsResult");
+// Dashboard elements
 
-    result.innerHTML = "";
+const status = document.getElementById("gpsStatus");
 
-    if (!navigator.geolocation) {
-        status.textContent = "GPS is not supported by this browser.";
+const latitudeDisplay = document.getElementById("latitude");
+
+const longitudeDisplay = document.getElementById("longitude");
+
+const accuracyDisplay = document.getElementById("accuracy");
+
+const trackingStatus = document.getElementById("trackingStatus");
+
+const lastUpdate = document.getElementById("lastUpdate");
+
+const googleMaps = document.getElementById("googleMaps");
+
+
+// Initialise map
+
+const map = L.map("map").setView([9.0820, 8.6753], 6);
+
+L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+        attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }
+).addTo(map);
+
+
+// Tracking variables
+
+let watchID = null;
+
+let locationMarker = null;
+
+let accuracyCircle = null;
+
+
+// Start GPS tracking
+
+function startTracking() {
+
+    if (watchID !== null) {
+        status.textContent = "Tracking is already active.";
         return;
     }
 
-    status.textContent = "Requesting location permission...";
+    if (!navigator.geolocation) {
+        status.textContent =
+            "GPS is not supported by this browser.";
+        return;
+    }
 
-    navigator.geolocation.watchPosition(
+    if (!window.isSecureContext) {
+        status.textContent =
+            "Secure HTTPS connection required for GPS.";
+        return;
+    }
+
+    status.textContent =
+        "Requesting location permission...";
+
+    trackingStatus.textContent = "STARTING";
+
+    watchID = navigator.geolocation.watchPosition(
 
         function(position) {
 
             const latitude = position.coords.latitude;
+
             const longitude = position.coords.longitude;
+
             const accuracy = position.coords.accuracy;
 
-            status.textContent = "Location detected successfully!";
+            const location = [latitude, longitude];
 
-            result.innerHTML =
-                "<p>Latitude: " + latitude + "</p>" +
-                "<p>Longitude: " + longitude + "</p>" +
-                "<p>Accuracy: " + Math.round(accuracy) + " metres</p>" +
-                "<p><a target='_blank' rel='noopener' href='https://www.google.com/maps?q=" +
-                latitude + "," + longitude +
-                "' style='color:#35b6ff;'>View on Google Maps</a></p>";
+
+            // Update dashboard
+
+            latitudeDisplay.textContent =
+                latitude.toFixed(6);
+
+            longitudeDisplay.textContent =
+                longitude.toFixed(6);
+
+            accuracyDisplay.textContent =
+                Math.round(accuracy) + " metres";
+
+            trackingStatus.textContent = "ACTIVE";
+
+            status.textContent =
+                "Live location detected successfully.";
+
+            lastUpdate.textContent =
+                new Date().toLocaleTimeString();
+
+
+            // Create or update location marker
+
+            if (locationMarker === null) {
+
+                locationMarker = L.circleMarker(
+                    location,
+                    {
+                        radius: 9,
+                        color: "#ffffff",
+                        weight: 3,
+                        fillColor: "#168de0",
+                        fillOpacity: 1
+                    }
+                ).addTo(map);
+
+            } else {
+
+                locationMarker.setLatLng(location);
+
+            }
+
+
+            // Create or update accuracy circle
+
+            if (accuracyCircle === null) {
+
+                accuracyCircle = L.circle(
+                    location,
+                    {
+                        radius: accuracy,
+                        color: "#168de0",
+                        fillColor: "#168de0",
+                        fillOpacity: 0.12
+                    }
+                ).addTo(map);
+
+            } else {
+
+                accuracyCircle.setLatLng(location);
+
+                accuracyCircle.setRadius(accuracy);
+
+            }
+
+
+            // Centre map on location
+
+            map.panTo(location);
+
+
+            // Google Maps link
+
+            googleMaps.href =
+                "https://www.google.com/maps?q=" +
+                latitude + "," + longitude;
+
         },
 
         function(error) {
 
-            status.textContent =
-                "Location unavailable. Please check your GPS permission and try again.";
+            watchID = null;
+
+            trackingStatus.textContent = "ERROR";
+
+            if (error.code === 1) {
+
+                status.textContent =
+                    "Location permission denied. Please allow location access.";
+
+            } else if (error.code === 2) {
+
+                status.textContent =
+                    "Your device could not determine its location.";
+
+            } else if (error.code === 3) {
+
+                status.textContent =
+                    "GPS request timed out. Please try again.";
+
+            } else {
+
+                status.textContent =
+                    "Unable to retrieve your location.";
+
+            }
 
         },
 
@@ -417,7 +645,56 @@ function detectLocation() {
         }
 
     );
+
 }
-    </script>
+
+
+// Stop GPS tracking
+
+function stopTracking() {
+
+    if (watchID !== null) {
+
+        navigator.geolocation.clearWatch(watchID);
+
+        watchID = null;
+
+    }
+
+    trackingStatus.textContent = "STOPPED";
+
+    status.textContent =
+        "Live GPS tracking has stopped.";
+
+}
+
+
+// Release GPS resources when leaving the page
+
+window.addEventListener("pagehide", function() {
+
+    if (watchID !== null) {
+
+        navigator.geolocation.clearWatch(watchID);
+
+        watchID = null;
+
+    }
+
+});
+
+
+// Correct map display after page layout loads
+
+window.addEventListener("load", function() {
+
+    setTimeout(function() {
+        map.invalidateSize();
+    }, 300);
+
+});
+
+</script>
+
 </body>
 </html>
