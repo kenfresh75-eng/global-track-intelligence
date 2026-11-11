@@ -384,7 +384,7 @@ function detectLocation() {
 
     status.textContent = "Requesting location permission...";
 
-    navigator.geolocation.getCurrentPosition(
+    navigator.geolocation.watchPosition(
 
         function(position) {
 
