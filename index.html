@@ -99,6 +99,8 @@ nav a:hover {
     text-decoration: none;
     border-radius: 6px;
     font-weight: bold;
+    border: none;
+    cursor: pointer;
 }
 
 .section {
@@ -140,6 +142,123 @@ nav a:hover {
 .card p {
     color: #b7c6d9;
     font-size: 14px;
+}
+
+/* ACCOUNT SECTION */
+
+.account-container {
+    max-width: 550px;
+    margin: auto;
+    background: #102137;
+    border: 1px solid #263e58;
+    padding: 28px;
+    border-radius: 12px;
+}
+
+.account-container h3 {
+    text-align: center;
+    color: #35b6ff;
+    margin-bottom: 20px;
+}
+
+.account-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.account-tabs button {
+    flex: 1;
+    padding: 12px;
+    background: #1a304b;
+    border: 1px solid #34516f;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.account-tabs button.active {
+    background: #168de0;
+}
+
+.account-form input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 14px;
+    border: 1px solid #34516f;
+    border-radius: 6px;
+    background: #081827;
+    color: white;
+    font-size: 15px;
+}
+
+.account-form input::placeholder {
+    color: #9aacc0;
+}
+
+.account-form button,
+.dashboard-button {
+    width: 100%;
+    padding: 14px;
+    background: #168de0;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.account-form button:disabled,
+.dashboard-button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.forgot-button {
+    display: block;
+    background: none;
+    border: none;
+    color: #35b6ff;
+    margin: 15px auto;
+    cursor: pointer;
+}
+
+.account-message {
+    text-align: center;
+    color: #35b6ff;
+    margin-top: 15px;
+    overflow-wrap: anywhere;
+    font-size: 14px;
+}
+
+.dashboard {
+    display: none;
+}
+
+.dashboard-details {
+    background: #081827;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow-wrap: anywhere;
+}
+
+.dashboard-details p {
+    padding: 9px 0;
+    border-bottom: 1px solid #263e58;
+    color: #c5d4e5;
+}
+
+.dashboard-details strong {
+    color: #35b6ff;
+}
+
+#verificationMessage {
+    color: #ffc45c;
+    font-size: 13px;
+    text-align: center;
+    margin: 12px 0;
 }
 
 .gps-panel {
@@ -263,6 +382,7 @@ footer a {
         <a href="#home">Home</a>
         <a href="#services">Services</a>
         <a href="#technology">Technology</a>
+        <a href="#account">Account</a>
         <a href="#gps">GPS Tracking</a>
         <a href="#about">About</a>
     </nav>
@@ -283,9 +403,168 @@ footer a {
         advanced digital monitoring capabilities.
     </p>
 
-    <a href="#gps" class="button">
-        Open GPS Tracking
+    <a href="#account" class="button">
+        Create Your GTI Account
     </a>
+
+</section>
+
+<!-- ACCOUNT SECTION -->
+
+<section class="section" id="account">
+
+    <h2>GTI User Account</h2>
+
+    <p class="subtitle">
+        Create an account or securely access your
+        Global Track Intelligence dashboard.
+    </p>
+
+    <div class="account-container">
+
+        <div id="authPanel">
+
+            <h3>WELCOME TO GTI</h3>
+
+            <div class="account-tabs">
+
+                <button id="loginTab" class="active">
+                    LOGIN
+                </button>
+
+                <button id="registerTab">
+                    CREATE ACCOUNT
+                </button>
+
+            </div>
+
+            <form id="loginForm" class="account-form">
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Email address"
+                    autocomplete="email"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <button type="submit" id="loginButton">
+                    LOGIN TO GTI
+                </button>
+
+                <button
+                    type="button"
+                    class="forgot-button"
+                    id="forgotButton"
+                >
+                    Forgot Password?
+                </button>
+
+            </form>
+
+            <form
+                id="registerForm"
+                class="account-form"
+                style="display:none;"
+            >
+
+                <input
+                    type="email"
+                    id="registerEmail"
+                    placeholder="Email address"
+                    autocomplete="email"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="Create password (minimum 6 characters)"
+                    autocomplete="new-password"
+                    minlength="6"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm password"
+                    autocomplete="new-password"
+                    minlength="6"
+                    required
+                >
+
+                <button type="submit" id="registerButton">
+                    CREATE MY ACCOUNT
+                </button>
+
+            </form>
+
+        </div>
+
+        <div id="dashboard" class="dashboard">
+
+            <h3>YOUR GTI DASHBOARD</h3>
+
+            <div class="dashboard-details">
+
+                <p>
+                    Account Email:
+                    <strong id="dashboardEmail"></strong>
+                </p>
+
+                <p>
+                    Account ID:
+                    <strong id="dashboardUID"></strong>
+                </p>
+
+                <p>
+                    Account Status:
+                    <strong id="dashboardStatus">
+                        ACTIVE
+                    </strong>
+                </p>
+
+                <p>
+                    Email Verification:
+                    <strong id="emailStatus"></strong>
+                </p>
+
+            </div>
+
+            <p id="verificationMessage"></p>
+
+            <button
+                id="resendVerification"
+                class="dashboard-button"
+                style="display:none;"
+            >
+                RESEND VERIFICATION EMAIL
+            </button>
+
+            <button
+                id="logoutButton"
+                class="dashboard-button"
+                style="background:#d93636;"
+            >
+                LOG OUT
+            </button>
+
+        </div>
+
+        <p id="accountMessage" class="account-message">
+            Secure account services powered by Firebase.
+        </p>
+
+    </div>
 
 </section>
 
@@ -450,9 +729,9 @@ footer a {
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<script>
+<!-- GPS TRACKING SCRIPT -->
 
-// Dashboard elements
+<script>
 
 const status = document.getElementById("gpsStatus");
 
@@ -468,9 +747,6 @@ const lastUpdate = document.getElementById("lastUpdate");
 
 const googleMaps = document.getElementById("googleMaps");
 
-
-// Initialise map
-
 const map = L.map("map").setView([9.0820, 8.6753], 6);
 
 L.tileLayer(
@@ -481,17 +757,11 @@ L.tileLayer(
     }
 ).addTo(map);
 
-
-// Tracking variables
-
 let watchID = null;
 
 let locationMarker = null;
 
 let accuracyCircle = null;
-
-
-// Start GPS tracking
 
 function startTracking() {
 
@@ -529,9 +799,6 @@ function startTracking() {
 
             const location = [latitude, longitude];
 
-
-            // Update dashboard
-
             latitudeDisplay.textContent =
                 latitude.toFixed(6);
 
@@ -548,9 +815,6 @@ function startTracking() {
 
             lastUpdate.textContent =
                 new Date().toLocaleTimeString();
-
-
-            // Create or update location marker
 
             if (locationMarker === null) {
 
@@ -570,9 +834,6 @@ function startTracking() {
                 locationMarker.setLatLng(location);
 
             }
-
-
-            // Create or update accuracy circle
 
             if (accuracyCircle === null) {
 
@@ -594,13 +855,7 @@ function startTracking() {
 
             }
 
-
-            // Centre map on location
-
             map.panTo(location);
-
-
-            // Google Maps link
 
             googleMaps.href =
                 "https://www.google.com/maps?q=" +
@@ -648,9 +903,6 @@ function startTracking() {
 
 }
 
-
-// Stop GPS tracking
-
 function stopTracking() {
 
     if (watchID !== null) {
@@ -668,9 +920,6 @@ function stopTracking() {
 
 }
 
-
-// Release GPS resources when leaving the page
-
 window.addEventListener("pagehide", function() {
 
     if (watchID !== null) {
@@ -683,14 +932,406 @@ window.addEventListener("pagehide", function() {
 
 });
 
-
-// Correct map display after page layout loads
-
 window.addEventListener("load", function() {
 
     setTimeout(function() {
         map.invalidateSize();
     }, 300);
+
+});
+
+</script>
+
+<!-- FIREBASE AUTHENTICATION SCRIPT -->
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js";
+
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    sendPasswordResetEmail,
+    sendEmailVerification,
+    onAuthStateChanged,
+    signOut
+}
+from "https://www.gstatic.com/firebasejs/13.3.0/firebase-auth.js";
+
+
+// EXISTING GTI FIREBASE PROJECT CONFIGURATION
+
+const firebaseConfig = {
+
+    apiKey: "AIzaSyBjbe2QO17GeDvLJWneCiBCdCLB_nAwdzA",
+
+    authDomain: "global-track-intelligence.firebaseapp.com",
+
+    projectId: "global-track-intelligence",
+
+    storageBucket: "global-track-intelligence.firebasestorage.app",
+
+    messagingSenderId: "618052405094",
+
+    appId: "1:618052405094:web:e0ad088c237f3d80cf6aa7"
+
+};
+
+
+// CONNECT FIREBASE
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+
+// HTML ELEMENTS
+
+const authPanel = document.getElementById("authPanel");
+
+const dashboard = document.getElementById("dashboard");
+
+const loginForm = document.getElementById("loginForm");
+
+const registerForm = document.getElementById("registerForm");
+
+const loginTab = document.getElementById("loginTab");
+
+const registerTab = document.getElementById("registerTab");
+
+const accountMessage = document.getElementById("accountMessage");
+
+const dashboardEmail = document.getElementById("dashboardEmail");
+
+const dashboardUID = document.getElementById("dashboardUID");
+
+const emailStatus = document.getElementById("emailStatus");
+
+const verificationMessage =
+    document.getElementById("verificationMessage");
+
+const resendVerification =
+    document.getElementById("resendVerification");
+
+
+// DISPLAY MESSAGES
+
+function showMessage(message) {
+
+    accountMessage.textContent = message;
+
+}
+
+
+// SWITCH BETWEEN LOGIN AND REGISTRATION
+
+loginTab.addEventListener("click", function() {
+
+    loginForm.style.display = "block";
+
+    registerForm.style.display = "none";
+
+    loginTab.classList.add("active");
+
+    registerTab.classList.remove("active");
+
+    showMessage("Enter your email and password to log in.");
+
+});
+
+
+registerTab.addEventListener("click", function() {
+
+    loginForm.style.display = "none";
+
+    registerForm.style.display = "block";
+
+    registerTab.classList.add("active");
+
+    loginTab.classList.remove("active");
+
+    showMessage("Create your secure GTI account.");
+
+});
+
+
+// CREATE ACCOUNT
+
+registerForm.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const email =
+        document.getElementById("registerEmail").value.trim();
+
+    const password =
+        document.getElementById("registerPassword").value;
+
+    const confirmPassword =
+        document.getElementById("confirmPassword").value;
+
+    const button =
+        document.getElementById("registerButton");
+
+    if (password !== confirmPassword) {
+
+        showMessage("Your passwords do not match.");
+
+        return;
+
+    }
+
+    if (password.length < 6) {
+
+        showMessage("Password must contain at least 6 characters.");
+
+        return;
+
+    }
+
+    button.disabled = true;
+
+    button.textContent = "CREATING ACCOUNT...";
+
+    try {
+
+        const result =
+            await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+        await sendEmailVerification(result.user);
+
+        showMessage(
+            "Account created! Please check your email for verification."
+        );
+
+    } catch (error) {
+
+        if (error.code === "auth/email-already-in-use") {
+
+            showMessage("This email already has a GTI account.");
+
+        } else if (error.code === "auth/invalid-email") {
+
+            showMessage("Please enter a valid email address.");
+
+        } else if (error.code === "auth/weak-password") {
+
+            showMessage("Please choose a stronger password.");
+
+        } else {
+
+            showMessage("Registration failed: " + error.message);
+
+        }
+
+    } finally {
+
+        button.disabled = false;
+
+        button.textContent = "CREATE MY ACCOUNT";
+
+    }
+
+});
+
+
+// LOGIN
+
+loginForm.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const email =
+        document.getElementById("loginEmail").value.trim();
+
+    const password =
+        document.getElementById("loginPassword").value;
+
+    const button =
+        document.getElementById("loginButton");
+
+    button.disabled = true;
+
+    button.textContent = "LOGGING IN...";
+
+    try {
+
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+        showMessage("Welcome back to Global Track Intelligence.");
+
+    } catch (error) {
+
+        if (
+            error.code === "auth/invalid-credential" ||
+            error.code === "auth/wrong-password" ||
+            error.code === "auth/user-not-found"
+        ) {
+
+            showMessage("Incorrect email or password.");
+
+        } else if (error.code === "auth/invalid-email") {
+
+            showMessage("Please enter a valid email address.");
+
+        } else {
+
+            showMessage("Login failed: " + error.message);
+
+        }
+
+    } finally {
+
+        button.disabled = false;
+
+        button.textContent = "LOGIN TO GTI";
+
+    }
+
+});
+
+
+// FORGOT PASSWORD
+
+document.getElementById("forgotButton")
+.addEventListener("click", async function() {
+
+    const email =
+        document.getElementById("loginEmail").value.trim();
+
+    if (!email) {
+
+        showMessage("Enter your email address first.");
+
+        return;
+
+    }
+
+    try {
+
+        await sendPasswordResetEmail(auth, email);
+
+        showMessage(
+            "Password reset instructions have been sent to your email."
+        );
+
+    } catch (error) {
+
+        if (error.code === "auth/invalid-email") {
+
+            showMessage("Please enter a valid email address.");
+
+        } else {
+
+            showMessage("Unable to send reset email: " + error.message);
+
+        }
+
+    }
+
+});
+
+
+// AUTHENTICATION STATE
+
+onAuthStateChanged(auth, function(user) {
+
+    if (user) {
+
+        authPanel.style.display = "none";
+
+        dashboard.style.display = "block";
+
+        dashboardEmail.textContent = user.email;
+
+        dashboardUID.textContent = user.uid;
+
+        if (user.emailVerified) {
+
+            emailStatus.textContent = "VERIFIED";
+
+            verificationMessage.textContent =
+                "Your email address has been verified.";
+
+            resendVerification.style.display = "none";
+
+        } else {
+
+            emailStatus.textContent = "NOT VERIFIED";
+
+            verificationMessage.textContent =
+                "Please check your inbox and verify your email address.";
+
+            resendVerification.style.display = "block";
+
+        }
+
+        showMessage("You are securely signed in to GTI.");
+
+    } else {
+
+        authPanel.style.display = "block";
+
+        dashboard.style.display = "none";
+
+        showMessage("Secure account services powered by Firebase.");
+
+    }
+
+});
+
+
+// RESEND VERIFICATION EMAIL
+
+resendVerification.addEventListener("click", async function() {
+
+    const user = auth.currentUser;
+
+    if (!user) return;
+
+    try {
+
+        await sendEmailVerification(user);
+
+        verificationMessage.textContent =
+            "A new verification email has been sent.";
+
+    } catch (error) {
+
+        verificationMessage.textContent =
+            "Unable to send email: " + error.message;
+
+    }
+
+});
+
+
+// LOGOUT
+
+document.getElementById("logoutButton")
+.addEventListener("click", async function() {
+
+    try {
+
+        await signOut(auth);
+
+        showMessage("You have successfully logged out.");
+
+    } catch (error) {
+
+        showMessage("Logout failed: " + error.message);
+
+    }
 
 });
 
