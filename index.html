@@ -3,372 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta name="description" content="GTI Global Track Intelligence - Secure global location intelligence and authorised GPS tracking.">
-
 <title>GTI | Global Track Intelligence</title>
 
-<link rel="stylesheet"
-href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #08111f;
-    color: #fff;
-    line-height: 1.6;
-}
-
-header {
-    background: #0d1b2e;
-    padding: 20px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #203650;
-}
-
-.logo {
-    font-size: 25px;
-    font-weight: bold;
-    color: #35b6ff;
-    letter-spacing: 2px;
-}
-
-.logo span {
-    color: white;
-}
-
-nav a {
-    color: #d4dfed;
-    text-decoration: none;
-    margin-left: 15px;
-    font-size: 14px;
-}
-
-nav a:hover {
-    color: #35b6ff;
-}
-
-.hero {
-    padding: 85px 7%;
-    text-align: center;
-    background: linear-gradient(
-        135deg, #08111f, #102d4b, #08111f
-    );
-}
-
-.hero h1 {
-    font-size: 42px;
-    margin-bottom: 20px;
-}
-
-.hero h1 span {
-    color: #35b6ff;
-}
-
-.hero p {
-    color: #b7c6d9;
-    max-width: 650px;
-    margin: auto;
-}
-
-.badge {
-    display: inline-block;
-    color: #35b6ff;
-    border: 1px solid #247bb5;
-    padding: 7px 15px;
-    border-radius: 20px;
-    margin-bottom: 25px;
-    font-size: 12px;
-    letter-spacing: 2px;
-}
-
-.button {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 14px 27px;
-    background: #168de0;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-}
-
-.section {
-    padding: 60px 7%;
-}
-
-.section h2 {
-    text-align: center;
-    font-size: 29px;
-    margin-bottom: 15px;
-}
-
-.subtitle {
-    text-align: center;
-    color: #a9b9cc;
-    margin-bottom: 35px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(
-        auto-fit, minmax(220px, 1fr)
-    );
-    gap: 22px;
-}
-
-.card {
-    background: #102137;
-    border: 1px solid #263e58;
-    padding: 25px;
-    border-radius: 10px;
-}
-
-.card h3 {
-    color: #35b6ff;
-    margin-bottom: 12px;
-}
-
-.card p {
-    color: #b7c6d9;
-    font-size: 14px;
-}
-
-/* ACCOUNT SECTION */
-
-.account-container {
-    max-width: 550px;
-    margin: auto;
-    background: #102137;
-    border: 1px solid #263e58;
-    padding: 28px;
-    border-radius: 12px;
-}
-
-.account-container h3 {
-    text-align: center;
-    color: #35b6ff;
-    margin-bottom: 20px;
-}
-
-.account-tabs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.account-tabs button {
-    flex: 1;
-    padding: 12px;
-    background: #1a304b;
-    border: 1px solid #34516f;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.account-tabs button.active {
-    background: #168de0;
-}
-
-.account-form input {
-    width: 100%;
-    padding: 14px;
-    margin-bottom: 14px;
-    border: 1px solid #34516f;
-    border-radius: 6px;
-    background: #081827;
-    color: white;
-    font-size: 15px;
-}
-
-.account-form input::placeholder {
-    color: #9aacc0;
-}
-
-.account-form button,
-.dashboard-button {
-    width: 100%;
-    padding: 14px;
-    background: #168de0;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 8px;
-}
-
-.account-form button:disabled,
-.dashboard-button:disabled {
-    opacity: 0.6;
-    cursor: wait;
-}
-
-.forgot-button {
-    display: block;
-    background: none;
-    border: none;
-    color: #35b6ff;
-    margin: 15px auto;
-    cursor: pointer;
-}
-
-.account-message {
-    text-align: center;
-    color: #35b6ff;
-    margin-top: 15px;
-    overflow-wrap: anywhere;
-    font-size: 14px;
-}
-
-.dashboard {
-    display: none;
-}
-
-.dashboard-details {
-    background: #081827;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    overflow-wrap: anywhere;
-}
-
-.dashboard-details p {
-    padding: 9px 0;
-    border-bottom: 1px solid #263e58;
-    color: #c5d4e5;
-}
-
-.dashboard-details strong {
-    color: #35b6ff;
-}
-
-#verificationMessage {
-    color: #ffc45c;
-    font-size: 13px;
-    text-align: center;
-    margin: 12px 0;
-}
-
-.gps-panel {
-    max-width: 800px;
-    margin: auto;
-    background: #102137;
-    border: 1px solid #263e58;
-    padding: 25px;
-    border-radius: 12px;
-}
-
-.gps-panel h3 {
-    color: #35b6ff;
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.status {
-    text-align: center;
-    color: #35b6ff;
-    margin: 15px 0;
-}
-
-.controls {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin: 20px 0;
-}
-
-.controls button {
-    padding: 13px 20px;
-    border: none;
-    border-radius: 6px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.start {
-    background: #168de0;
-}
-
-.stop {
-    background: #d93636;
-}
-
-.gps-data {
-    margin-top: 20px;
-}
-
-.gps-data p {
-    padding: 10px 5px;
-    border-bottom: 1px solid #263e58;
-    overflow-wrap: anywhere;
-}
-
-#map {
-    width: 100%;
-    height: 380px;
-    margin-top: 25px;
-    border-radius: 10px;
-    border: 1px solid #35b6ff;
-    z-index: 1;
-}
-
-.google-link {
-    display: inline-block;
-    color: #35b6ff;
-    margin-top: 18px;
-}
-
-footer {
-    padding: 35px 7%;
-    text-align: center;
-    color: #8194aa;
-    font-size: 13px;
-}
-
-footer a {
-    color: #35b6ff;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-@media(max-width:650px) {
-    header {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    nav a {
-        margin: 0;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    #map {
-        height: 300px;
-    }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#08111f;color:#fff;line-height:1.6}
+header{background:#0d1b2e;padding:20px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #203650}
+.logo{font-size:25px;font-weight:bold;color:#35b6ff;letter-spacing:2px}
+.logo span{color:white}
+nav a{color:#d4dfed;text-decoration:none;margin-left:15px;font-size:14px}
+nav a:hover{color:#35b6ff}
+.hero{padding:85px 7%;text-align:center;background:linear-gradient(135deg,#08111f,#102d4b,#08111f)}
+.hero h1{font-size:42px;margin-bottom:20px}
+.hero h1 span{color:#35b6ff}
+.hero p{color:#b7c6d9;max-width:650px;margin:auto}
+.badge{display:inline-block;color:#35b6ff;border:1px solid #247bb5;padding:7px 15px;border-radius:20px;margin-bottom:25px;font-size:12px;letter-spacing:2px}
+.button{display:inline-block;margin-top:25px;padding:14px 27px;background:#168de0;color:white;text-decoration:none;border-radius:6px;font-weight:bold;border:none;cursor:pointer}
+.section{padding:60px 7%}
+.section h2{text-align:center;font-size:29px;margin-bottom:15px}
+.subtitle{text-align:center;color:#a9b9cc;margin-bottom:35px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.card{background:#102137;border:1px solid #263e58;padding:25px;border-radius:10px}
+.card h3{color:#35b6ff;margin-bottom:12px}
+.card p{color:#b7c6d9;font-size:14px}
+.account-container{max-width:550px;margin:auto;background:#102137;border:1px solid #263e58;padding:28px;border-radius:12px}
+.account-container h3{text-align:center;color:#35b6ff;margin-bottom:20px}
+.account-tabs{display:flex;gap:10px;margin-bottom:20px}
+.account-tabs button{flex:1;padding:12px;background:#1a304b;border:1px solid #34516f;color:white;border-radius:6px;cursor:pointer}
+.account-tabs button.active{background:#168de0}
+.account-form input,.share-input{width:100%;padding:14px;margin-bottom:14px;border:1px solid #34516f;border-radius:6px;background:#081827;color:white;font-size:15px}
+.account-form input::placeholder,.share-input::placeholder{color:#9aacc0}
+.account-form button,.dashboard-button,.action-button{width:100%;padding:14px;background:#168de0;color:white;border:none;border-radius:6px;font-weight:bold;cursor:pointer;margin-top:8px}
+button:disabled{opacity:.6;cursor:wait}
+.forgot-button{display:block;background:none;border:none;color:#35b6ff;margin:15px auto;cursor:pointer}
+.account-message,.message{text-align:center;color:#35b6ff;margin-top:15px;overflow-wrap:anywhere;font-size:14px}
+.dashboard{display:none}
+.dashboard-details{background:#081827;padding:20px;border-radius:8px;margin-bottom:20px;overflow-wrap:anywhere}
+.dashboard-details p{padding:9px 0;border-bottom:1px solid #263e58;color:#c5d4e5}
+.dashboard-details strong{color:#35b6ff}
+#verificationMessage{color:#ffc45c;font-size:13px;text-align:center;margin:12px 0}
+.panel{max-width:900px;margin:auto;background:#102137;border:1px solid #263e58;padding:25px;border-radius:12px}
+.panel h3{color:#35b6ff;text-align:center;margin-bottom:15px}
+.status{text-align:center;color:#35b6ff;margin:15px 0}
+.controls{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:20px 0}
+.controls button{padding:13px 20px;border:none;border-radius:6px;color:white;font-weight:bold;cursor:pointer}
+.start{background:#168de0}
+.stop{background:#d93636}
+.gps-data{margin-top:20px}
+.gps-data p{padding:10px 5px;border-bottom:1px solid #263e58;overflow-wrap:anywhere}
+#map{width:100%;height:380px;margin-top:25px;border-radius:10px;border:1px solid #35b6ff;z-index:1}
+.google-link{display:inline-block;color:#35b6ff;margin-top:18px}
+.share-box{background:#081827;border:1px solid #263e58;border-radius:9px;padding:18px;margin:18px 0}
+.share-box h4{color:#35b6ff;margin-bottom:10px}
+.code-display{background:#102d4b;padding:14px;border-radius:6px;text-align:center;overflow-wrap:anywhere;color:#fff;font-weight:bold;margin:10px 0}
+.list-item{background:#081827;border:1px solid #263e58;padding:14px;border-radius:7px;margin:10px 0;overflow-wrap:anywhere}
+.list-item p{color:#c5d4e5;font-size:14px;margin:5px 0}
+.small-button{padding:9px 13px;border:0;border-radius:5px;color:#fff;background:#168de0;margin:5px 5px 0 0;cursor:pointer}
+.danger{background:#d93636}
+.approve{background:#138b59}
+footer{padding:35px 7%;text-align:center;color:#8194aa;font-size:13px}
+footer a{color:#35b6ff;text-decoration:none;margin:0 10px}
+@media(max-width:650px){
+header{flex-direction:column;gap:15px}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+nav a{margin:0}
+.hero h1{font-size:32px}
+#map{height:300px}
 }
 </style>
 </head>
@@ -376,966 +79,694 @@ footer a {
 <body>
 
 <header>
-    <div class="logo">GTI<span>.</span></div>
-
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#technology">Technology</a>
-        <a href="#account">Account</a>
-        <a href="#gps">GPS Tracking</a>
-        <a href="#about">About</a>
-    </nav>
+<div class="logo">GTI<span>.</span></div>
+<nav>
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#technology">Technology</a>
+<a href="#account">Account</a>
+<a href="#gps">GPS Tracking</a>
+<a href="#sharing">Location Sharing</a>
+<a href="#about">About</a>
+</nav>
 </header>
 
 <section class="hero" id="home">
-
-    <div class="badge">
-        GLOBAL LOCATION INTELLIGENCE
-    </div>
-
-    <h1>Welcome to <span>GTI</span></h1>
-
-    <p>
-        Global Track Intelligence is a technology
-        platform designed to bring together geographical
-        intelligence, authorised location services and
-        advanced digital monitoring capabilities.
-    </p>
-
-    <a href="#account" class="button">
-        Create Your GTI Account
-    </a>
-
+<div class="badge">GLOBAL LOCATION INTELLIGENCE</div>
+<h1>Welcome to <span>GTI</span></h1>
+<p>Global Track Intelligence is a technology platform designed to bring together geographical intelligence, authorised location services and advanced digital monitoring capabilities.</p>
+<a href="#account" class="button">Create Your GTI Account</a>
 </section>
 
-<!-- ACCOUNT SECTION -->
-
 <section class="section" id="account">
+<h2>GTI User Account</h2>
+<p class="subtitle">Create an account or securely access your Global Track Intelligence dashboard.</p>
 
-    <h2>GTI User Account</h2>
+<div class="account-container">
+<div id="authPanel">
+<h3>WELCOME TO GTI</h3>
+<div class="account-tabs">
+<button id="loginTab" class="active">LOGIN</button>
+<button id="registerTab">CREATE ACCOUNT</button>
+</div>
 
-    <p class="subtitle">
-        Create an account or securely access your
-        Global Track Intelligence dashboard.
-    </p>
+<form id="loginForm" class="account-form">
+<input type="email" id="loginEmail" placeholder="Email address" autocomplete="email" required>
+<input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" required>
+<button type="submit" id="loginButton">LOGIN TO GTI</button>
+<button type="button" class="forgot-button" id="forgotButton">Forgot Password?</button>
+</form>
 
-    <div class="account-container">
+<form id="registerForm" class="account-form" style="display:none">
+<input type="email" id="registerEmail" placeholder="Email address" autocomplete="email" required>
+<input type="password" id="registerPassword" placeholder="Create password (minimum 6 characters)" autocomplete="new-password" minlength="6" required>
+<input type="password" id="confirmPassword" placeholder="Confirm password" autocomplete="new-password" minlength="6" required>
+<button type="submit" id="registerButton">CREATE MY ACCOUNT</button>
+</form>
+</div>
 
-        <div id="authPanel">
-
-            <h3>WELCOME TO GTI</h3>
-
-            <div class="account-tabs">
-
-                <button id="loginTab" class="active">
-                    LOGIN
-                </button>
-
-                <button id="registerTab">
-                    CREATE ACCOUNT
-                </button>
-
-            </div>
-
-            <form id="loginForm" class="account-form">
-
-                <input
-                    type="email"
-                    id="loginEmail"
-                    placeholder="Email address"
-                    autocomplete="email"
-                    required
-                >
-
-                <input
-                    type="password"
-                    id="loginPassword"
-                    placeholder="Password"
-                    autocomplete="current-password"
-                    required
-                >
-
-                <button type="submit" id="loginButton">
-                    LOGIN TO GTI
-                </button>
-
-                <button
-                    type="button"
-                    class="forgot-button"
-                    id="forgotButton"
-                >
-                    Forgot Password?
-                </button>
-
-            </form>
-
-            <form
-                id="registerForm"
-                class="account-form"
-                style="display:none;"
-            >
-
-                <input
-                    type="email"
-                    id="registerEmail"
-                    placeholder="Email address"
-                    autocomplete="email"
-                    required
-                >
-
-                <input
-                    type="password"
-                    id="registerPassword"
-                    placeholder="Create password (minimum 6 characters)"
-                    autocomplete="new-password"
-                    minlength="6"
-                    required
-                >
-
-                <input
-                    type="password"
-                    id="confirmPassword"
-                    placeholder="Confirm password"
-                    autocomplete="new-password"
-                    minlength="6"
-                    required
-                >
-
-                <button type="submit" id="registerButton">
-                    CREATE MY ACCOUNT
-                </button>
-
-            </form>
-
-        </div>
-
-        <div id="dashboard" class="dashboard">
-
-            <h3>YOUR GTI DASHBOARD</h3>
-
-            <div class="dashboard-details">
-
-                <p>
-                    Account Email:
-                    <strong id="dashboardEmail"></strong>
-                </p>
-
-                <p>
-                    Account ID:
-                    <strong id="dashboardUID"></strong>
-                </p>
-
-                <p>
-                    Account Status:
-                    <strong id="dashboardStatus">
-                        ACTIVE
-                    </strong>
-                </p>
-
-                <p>
-                    Email Verification:
-                    <strong id="emailStatus"></strong>
-                </p>
-
-            </div>
-
-            <p id="verificationMessage"></p>
-
-            <button
-                id="resendVerification"
-                class="dashboard-button"
-                style="display:none;"
-            >
-                RESEND VERIFICATION EMAIL
-            </button>
-
-            <button
-                id="logoutButton"
-                class="dashboard-button"
-                style="background:#d93636;"
-            >
-                LOG OUT
-            </button>
-
-        </div>
-
-        <p id="accountMessage" class="account-message">
-            Secure account services powered by Firebase.
-        </p>
-
-    </div>
-
+<div id="dashboard" class="dashboard">
+<h3>YOUR GTI DASHBOARD</h3>
+<div class="dashboard-details">
+<p>Account Email: <strong id="dashboardEmail"></strong></p>
+<p>Account ID: <strong id="dashboardUID"></strong></p>
+<p>Account Status: <strong>ACTIVE</strong></p>
+<p>Email Verification: <strong id="emailStatus"></strong></p>
+</div>
+<p id="verificationMessage"></p>
+<button id="resendVerification" class="dashboard-button" style="display:none">RESEND VERIFICATION EMAIL</button>
+<button id="logoutButton" class="dashboard-button" style="background:#d93636">LOG OUT</button>
+</div>
+<p id="accountMessage" class="account-message">Secure account services powered by Firebase.</p>
+</div>
 </section>
 
 <section class="section" id="services">
-
-    <h2>Our Intelligence Services</h2>
-
-    <p class="subtitle">
-        Exploring the future of global location technology.
-    </p>
-
-    <div class="grid">
-
-        <div class="card">
-            <h3>GPS Intelligence</h3>
-            <p>
-                Technology for authorised GPS positioning
-                and real-time location sharing.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Global Mapping</h3>
-            <p>
-                Geographical mapping and location
-                visualisation across the world.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Device Intelligence</h3>
-            <p>
-                Secure device registration and
-                authorised device information services.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Location Analytics</h3>
-            <p>
-                Geographical data analysis,
-                movement history and location insights.
-            </p>
-        </div>
-
-    </div>
-
+<h2>Our Intelligence Services</h2>
+<p class="subtitle">Exploring the future of global location technology.</p>
+<div class="grid">
+<div class="card"><h3>GPS Intelligence</h3><p>Technology for authorised GPS positioning and real-time location sharing.</p></div>
+<div class="card"><h3>Global Mapping</h3><p>Geographical mapping and location visualisation across the world.</p></div>
+<div class="card"><h3>Device Intelligence</h3><p>Secure device registration and authorised device information services.</p></div>
+<div class="card"><h3>Location Analytics</h3><p>Geographical data analysis, movement history and location insights.</p></div>
+</div>
 </section>
 
 <section class="section" id="technology">
-
-    <h2>Technology Without Boundaries</h2>
-
-    <p class="subtitle">
-        Building a secure, scalable and intelligent
-        global technology platform.
-    </p>
-
+<h2>Technology Without Boundaries</h2>
+<p class="subtitle">Building a secure, scalable and intelligent global technology platform.</p>
 </section>
 
 <section class="section" id="gps">
+<h2>GTI Live GPS Tracking</h2>
+<p class="subtitle">Track your own device and share your location only with people you approve.</p>
 
-    <h2>GTI Live GPS Tracking</h2>
+<div class="panel">
+<h3>LIVE TRACKING DASHBOARD</h3>
+<p id="gpsStatus" class="status">Sign in to use GPS tracking.</p>
 
-    <p class="subtitle">
-        Track your own device location with your permission.
-    </p>
+<div class="controls">
+<button class="start" id="startButton">START TRACKING</button>
+<button class="stop" id="stopButton">STOP TRACKING</button>
+</div>
 
-    <div class="gps-panel">
+<div class="gps-data">
+<p>Latitude: <strong id="latitude">Waiting...</strong></p>
+<p>Longitude: <strong id="longitude">Waiting...</strong></p>
+<p>GPS Accuracy: <strong id="accuracy">Waiting...</strong></p>
+<p>Tracking Status: <strong id="trackingStatus">STOPPED</strong></p>
+<p>Last Update: <strong id="lastUpdate">Not available</strong></p>
+</div>
 
-        <h3>LIVE TRACKING DASHBOARD</h3>
+<a id="googleMaps" class="google-link" href="#gps" target="_blank" rel="noopener">View My Location on Google Maps</a>
+<div id="map"></div>
+</div>
+</section>
 
-        <p id="gpsStatus" class="status">
-            Tracking is currently stopped.
-        </p>
+<section class="section" id="sharing">
+<h2>GTI Authorised Location Sharing</h2>
+<p class="subtitle">Share your location with trusted people. Every request requires your approval.</p>
 
-        <div class="controls">
+<div class="panel">
+<h3>LOCATION SHARING CONTROL CENTRE</h3>
 
-            <button class="start" onclick="startTracking()">
-                START TRACKING
-            </button>
+<div class="share-box">
+<h4>1. Create Your Sharing Invitation</h4>
+<p class="subtitle" style="margin:0 0 12px">Create a private invitation code. Give it only to the person you want to authorise.</p>
+<button class="action-button" id="createShareButton">CREATE SHARING INVITATION</button>
+<p id="createShareMessage" class="message"></p>
+<div id="myShareCodes"></div>
+</div>
 
-            <button class="stop" onclick="stopTracking()">
-                STOP TRACKING
-            </button>
+<div class="share-box">
+<h4>2. Request Permission to View a Location</h4>
+<p style="color:#b7c6d9;font-size:14px;margin-bottom:12px">Enter the invitation code shared with you by another GTI user.</p>
+<input id="shareCodeInput" class="share-input" placeholder="Enter invitation code">
+<button class="action-button" id="requestShareButton">REQUEST LOCATION ACCESS</button>
+<p id="requestMessage" class="message"></p>
+</div>
 
-        </div>
+<div class="share-box">
+<h4>3. Incoming Access Requests</h4>
+<p style="color:#b7c6d9;font-size:14px">Review requests from people who want to view your location.</p>
+<div id="incomingRequests"><p class="message">Sign in to load requests.</p></div>
+</div>
 
-        <div class="gps-data">
-
-            <p>
-                Latitude:
-                <strong id="latitude">Waiting...</strong>
-            </p>
-
-            <p>
-                Longitude:
-                <strong id="longitude">Waiting...</strong>
-            </p>
-
-            <p>
-                GPS Accuracy:
-                <strong id="accuracy">Waiting...</strong>
-            </p>
-
-            <p>
-                Tracking Status:
-                <strong id="trackingStatus">STOPPED</strong>
-            </p>
-
-            <p>
-                Last Update:
-                <strong id="lastUpdate">Not available</strong>
-            </p>
-
-        </div>
-
-        <a id="googleMaps"
-           class="google-link"
-           href="#gps"
-           target="_blank"
-           rel="noopener">
-            View Location on Google Maps
-        </a>
-
-        <div id="map"></div>
-
-    </div>
-
+<div class="share-box">
+<h4>4. Locations You Are Authorised to View</h4>
+<p style="color:#b7c6d9;font-size:14px">Approved locations will appear on your global map when they are actively sharing.</p>
+<div id="approvedLocations"><p class="message">No approved locations loaded.</p></div>
+</div>
+</div>
 </section>
 
 <section class="section" id="about">
-
-    <h2>About Global Track Intelligence</h2>
-
-    <p class="subtitle">
-        GTI is being developed as a professional
-        location intelligence platform focused on
-        security, innovation and responsible technology.
-    </p>
-
+<h2>About Global Track Intelligence</h2>
+<p class="subtitle">GTI is being developed as a professional location intelligence platform focused on security, innovation and responsible technology.</p>
 </section>
 
 <footer>
-
-    <p>
-        &copy; 2026 Global Track Intelligence.
-        All Rights Reserved.
-    </p>
-
-    <br>
-
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-
-    <p style="margin-top:15px;">
-        Secure Technology. Global Intelligence.
-    </p>
-
+<p>&copy; 2026 Global Track Intelligence. All Rights Reserved.</p>
+<br>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<p style="margin-top:15px">Secure Technology. Global Intelligence.</p>
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<!-- GPS TRACKING SCRIPT -->
-
-<script>
-
-const status = document.getElementById("gpsStatus");
-
-const latitudeDisplay = document.getElementById("latitude");
-
-const longitudeDisplay = document.getElementById("longitude");
-
-const accuracyDisplay = document.getElementById("accuracy");
-
-const trackingStatus = document.getElementById("trackingStatus");
-
-const lastUpdate = document.getElementById("lastUpdate");
-
-const googleMaps = document.getElementById("googleMaps");
-
-const map = L.map("map").setView([9.0820, 8.6753], 6);
-
-L.tileLayer(
-    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    {
-        attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }
-).addTo(map);
-
-let watchID = null;
-
-let locationMarker = null;
-
-let accuracyCircle = null;
-
-function startTracking() {
-
-    if (watchID !== null) {
-        status.textContent = "Tracking is already active.";
-        return;
-    }
-
-    if (!navigator.geolocation) {
-        status.textContent =
-            "GPS is not supported by this browser.";
-        return;
-    }
-
-    if (!window.isSecureContext) {
-        status.textContent =
-            "Secure HTTPS connection required for GPS.";
-        return;
-    }
-
-    status.textContent =
-        "Requesting location permission...";
-
-    trackingStatus.textContent = "STARTING";
-
-    watchID = navigator.geolocation.watchPosition(
-
-        function(position) {
-
-            const latitude = position.coords.latitude;
-
-            const longitude = position.coords.longitude;
-
-            const accuracy = position.coords.accuracy;
-
-            const location = [latitude, longitude];
-
-            latitudeDisplay.textContent =
-                latitude.toFixed(6);
-
-            longitudeDisplay.textContent =
-                longitude.toFixed(6);
-
-            accuracyDisplay.textContent =
-                Math.round(accuracy) + " metres";
-
-            trackingStatus.textContent = "ACTIVE";
-
-            status.textContent =
-                "Live location detected successfully.";
-
-            lastUpdate.textContent =
-                new Date().toLocaleTimeString();
-
-            if (locationMarker === null) {
-
-                locationMarker = L.circleMarker(
-                    location,
-                    {
-                        radius: 9,
-                        color: "#ffffff",
-                        weight: 3,
-                        fillColor: "#168de0",
-                        fillOpacity: 1
-                    }
-                ).addTo(map);
-
-            } else {
-
-                locationMarker.setLatLng(location);
-
-            }
-
-            if (accuracyCircle === null) {
-
-                accuracyCircle = L.circle(
-                    location,
-                    {
-                        radius: accuracy,
-                        color: "#168de0",
-                        fillColor: "#168de0",
-                        fillOpacity: 0.12
-                    }
-                ).addTo(map);
-
-            } else {
-
-                accuracyCircle.setLatLng(location);
-
-                accuracyCircle.setRadius(accuracy);
-
-            }
-
-            map.panTo(location);
-
-            googleMaps.href =
-                "https://www.google.com/maps?q=" +
-                latitude + "," + longitude;
-
-        },
-
-        function(error) {
-
-            watchID = null;
-
-            trackingStatus.textContent = "ERROR";
-
-            if (error.code === 1) {
-
-                status.textContent =
-                    "Location permission denied. Please allow location access.";
-
-            } else if (error.code === 2) {
-
-                status.textContent =
-                    "Your device could not determine its location.";
-
-            } else if (error.code === 3) {
-
-                status.textContent =
-                    "GPS request timed out. Please try again.";
-
-            } else {
-
-                status.textContent =
-                    "Unable to retrieve your location.";
-
-            }
-
-        },
-
-        {
-            enableHighAccuracy: true,
-            timeout: 15000,
-            maximumAge: 0
-        }
-
-    );
-
-}
-
-function stopTracking() {
-
-    if (watchID !== null) {
-
-        navigator.geolocation.clearWatch(watchID);
-
-        watchID = null;
-
-    }
-
-    trackingStatus.textContent = "STOPPED";
-
-    status.textContent =
-        "Live GPS tracking has stopped.";
-
-}
-
-window.addEventListener("pagehide", function() {
-
-    if (watchID !== null) {
-
-        navigator.geolocation.clearWatch(watchID);
-
-        watchID = null;
-
-    }
-
-});
-
-window.addEventListener("load", function() {
-
-    setTimeout(function() {
-        map.invalidateSize();
-    }, 300);
-
-});
-
-</script>
-
-<!-- FIREBASE AUTHENTICATION SCRIPT -->
-
 <script type="module">
-
-import { initializeApp }
+import {initializeApp}
 from "https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js";
 
 import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    sendPasswordResetEmail,
-    sendEmailVerification,
-    onAuthStateChanged,
-    signOut
-}
-from "https://www.gstatic.com/firebasejs/13.3.0/firebase-auth.js";
+ getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,
+ sendPasswordResetEmail,sendEmailVerification,onAuthStateChanged,signOut
+} from "https://www.gstatic.com/firebasejs/13.3.0/firebase-auth.js";
 
+import {
+ getFirestore,collection,doc,setDoc,addDoc,getDoc,query,where,
+ onSnapshot,updateDoc,serverTimestamp
+} from "https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js";
 
-// EXISTING GTI FIREBASE PROJECT CONFIGURATION
-
-const firebaseConfig = {
-
-    apiKey: "AIzaSyBjbe2QO17GeDvLJWneCiBCdCLB_nAwdzA",
-
-    authDomain: "global-track-intelligence.firebaseapp.com",
-
-    projectId: "global-track-intelligence",
-
-    storageBucket: "global-track-intelligence.firebasestorage.app",
-
-    messagingSenderId: "618052405094",
-
-    appId: "1:618052405094:web:e0ad088c237f3d80cf6aa7"
-
+const firebaseConfig={
+ apiKey:"AIzaSyBjbe2QO17GeDvLJWneCiBCdCLB_nAwdzA",
+ authDomain:"global-track-intelligence.firebaseapp.com",
+ projectId:"global-track-intelligence",
+ storageBucket:"global-track-intelligence.firebasestorage.app",
+ messagingSenderId:"618052405094",
+ appId:"1:618052405094:web:e0ad088c237f3d80cf6aa7"
 };
 
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getFirestore(app);
 
-// CONNECT FIREBASE
+const $=id=>document.getElementById(id);
+const accountMessage=$("accountMessage");
 
-const app = initializeApp(firebaseConfig);
+function message(id,text){$(id).textContent=text;}
+function showAccountMessage(text){accountMessage.textContent=text;}
 
-const auth = getAuth(app);
+let currentUser=null;
+let watchID=null;
+let latestPosition=null;
+let ownMarker=null;
+let ownCircle=null;
+let shareUnsubscribers=[];
+let locationUnsubscribers=new Map();
+let viewerUnsubscribers=new Map();
+let incomingUnsubscribe=null;
+let ownerSharesUnsubscribe=null;
+let myShares={};
+let mapMarkers=new Map();
 
+const map=L.map("map").setView([9.082,8.6753],6);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
+ attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
 
-// HTML ELEMENTS
-
-const authPanel = document.getElementById("authPanel");
-
-const dashboard = document.getElementById("dashboard");
-
-const loginForm = document.getElementById("loginForm");
-
-const registerForm = document.getElementById("registerForm");
-
-const loginTab = document.getElementById("loginTab");
-
-const registerTab = document.getElementById("registerTab");
-
-const accountMessage = document.getElementById("accountMessage");
-
-const dashboardEmail = document.getElementById("dashboardEmail");
-
-const dashboardUID = document.getElementById("dashboardUID");
-
-const emailStatus = document.getElementById("emailStatus");
-
-const verificationMessage =
-    document.getElementById("verificationMessage");
-
-const resendVerification =
-    document.getElementById("resendVerification");
-
-
-// DISPLAY MESSAGES
-
-function showMessage(message) {
-
-    accountMessage.textContent = message;
-
+function clearListeners(){
+ shareUnsubscribers.forEach(fn=>fn());
+ shareUnsubscribers=[];
+ locationUnsubscribers.forEach(fn=>fn());
+ locationUnsubscribers.clear();
+ viewerUnsubscribers.forEach(fn=>fn());
+ viewerUnsubscribers.clear();
+ if(incomingUnsubscribe){incomingUnsubscribe();incomingUnsubscribe=null;}
+ if(ownerSharesUnsubscribe){ownerSharesUnsubscribe();ownerSharesUnsubscribe=null;}
 }
 
+function removeMarker(key){
+ if(mapMarkers.has(key)){
+  map.removeLayer(mapMarkers.get(key));
+  mapMarkers.delete(key);
+ }
+}
 
-// SWITCH BETWEEN LOGIN AND REGISTRATION
+function showMapLocation(key,label,data){
+ if(typeof data.latitude!=="number"||typeof data.longitude!=="number")return;
+ const point=[data.latitude,data.longitude];
+ if(mapMarkers.has(key)){
+  mapMarkers.get(key).setLatLng(point).bindPopup(label);
+ }else{
+  const marker=L.marker(point).addTo(map).bindPopup(label);
+  mapMarkers.set(key,marker);
+ }
+}
 
-loginTab.addEventListener("click", function() {
+function stopGPS(){
+ if(watchID!==null){
+  navigator.geolocation.clearWatch(watchID);
+  watchID=null;
+ }
+ $("trackingStatus").textContent="STOPPED";
+ $("gpsStatus").textContent="GPS tracking stopped. Your location will no longer be uploaded.";
+ $("startButton").disabled=false;
+}
 
-    loginForm.style.display = "block";
+async function uploadLocation(position){
+ if(!currentUser)return;
+ latestPosition=position;
+ const latitude=position.coords.latitude;
+ const longitude=position.coords.longitude;
+ const accuracy=position.coords.accuracy;
 
-    registerForm.style.display = "none";
+ $("latitude").textContent=latitude.toFixed(6);
+ $("longitude").textContent=longitude.toFixed(6);
+ $("accuracy").textContent=Math.round(accuracy)+" metres";
+ $("trackingStatus").textContent="ACTIVE";
+ $("lastUpdate").textContent=new Date().toLocaleTimeString();
+ $("gpsStatus").textContent="Your device is sharing its live GPS position with your active approved sessions.";
 
-    loginTab.classList.add("active");
+ const point=[latitude,longitude];
+ if(ownMarker){
+  ownMarker.setLatLng(point);
+  ownCircle.setLatLng(point);
+  ownCircle.setRadius(accuracy);
+ }else{
+  ownMarker=L.circleMarker(point,{radius:9,color:"#fff",weight:3,fillColor:"#168de0",fillOpacity:1}).addTo(map).bindPopup("Your device");
+  ownCircle=L.circle(point,{radius:accuracy,color:"#168de0",fillOpacity:.12}).addTo(map);
+ }
+ map.panTo(point);
+ $("googleMaps").href="https://www.google.com/maps?q="+latitude+","+longitude;
 
-    registerTab.classList.remove("active");
+ const activeShares=Object.entries(myShares).filter(([id,data])=>data.active===true);
+ for(const [shareId] of activeShares){
+  try{
+   await setDoc(doc(db,"shares",shareId,"location","current"),{
+    latitude,longitude,accuracy,updatedAt:serverTimestamp()
+   });
+  }catch(error){
+   console.error("Location upload failed:",error);
+   $("gpsStatus").textContent="GPS is working, but a sharing update was blocked. Check your sharing session.";
+  }
+ }
+}
 
-    showMessage("Enter your email and password to log in.");
+function startGPS(){
+ if(!currentUser){
+  $("gpsStatus").textContent="Please sign in before starting GPS.";
+  location.hash="#account";
+  return;
+ }
+ if(watchID!==null){
+  $("gpsStatus").textContent="GPS tracking is already active.";
+  return;
+ }
+ if(!navigator.geolocation||!window.isSecureContext){
+  $("gpsStatus").textContent="GPS requires browser support and a secure HTTPS connection.";
+  return;
+ }
+ $("gpsStatus").textContent="Requesting permission to access your device location...";
+ $("trackingStatus").textContent="STARTING";
+ $("startButton").disabled=true;
 
+ watchID=navigator.geolocation.watchPosition(
+  position=>{
+   uploadLocation(position).catch(error=>console.error(error));
+   $("startButton").disabled=false;
+  },
+  error=>{
+   stopGPS();
+   if(error.code===1)$("gpsStatus").textContent="Location permission denied. Allow location access in your browser settings.";
+   else if(error.code===2)$("gpsStatus").textContent="Your device could not determine its location.";
+   else if(error.code===3)$("gpsStatus").textContent="GPS request timed out. Please try again.";
+   else $("gpsStatus").textContent="Unable to retrieve your location.";
+  },
+  {enableHighAccuracy:true,timeout:20000,maximumAge:3000}
+ );
+}
+
+$("startButton").addEventListener("click",startGPS);
+$("stopButton").addEventListener("click",stopGPS);
+
+window.addEventListener("pagehide",()=>{
+ if(watchID!==null)navigator.geolocation.clearWatch(watchID);
 });
 
+window.addEventListener("load",()=>setTimeout(()=>map.invalidateSize(),300));
 
-registerTab.addEventListener("click", function() {
-
-    loginForm.style.display = "none";
-
-    registerForm.style.display = "block";
-
-    registerTab.classList.add("active");
-
-    loginTab.classList.remove("active");
-
-    showMessage("Create your secure GTI account.");
-
+$("loginTab").addEventListener("click",()=>{
+ $("loginForm").style.display="block";
+ $("registerForm").style.display="none";
+ $("loginTab").classList.add("active");
+ $("registerTab").classList.remove("active");
+ showAccountMessage("Enter your email and password to log in.");
 });
 
-
-// CREATE ACCOUNT
-
-registerForm.addEventListener("submit", async function(event) {
-
-    event.preventDefault();
-
-    const email =
-        document.getElementById("registerEmail").value.trim();
-
-    const password =
-        document.getElementById("registerPassword").value;
-
-    const confirmPassword =
-        document.getElementById("confirmPassword").value;
-
-    const button =
-        document.getElementById("registerButton");
-
-    if (password !== confirmPassword) {
-
-        showMessage("Your passwords do not match.");
-
-        return;
-
-    }
-
-    if (password.length < 6) {
-
-        showMessage("Password must contain at least 6 characters.");
-
-        return;
-
-    }
-
-    button.disabled = true;
-
-    button.textContent = "CREATING ACCOUNT...";
-
-    try {
-
-        const result =
-            await createUserWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
-
-        await sendEmailVerification(result.user);
-
-        showMessage(
-            "Account created! Please check your email for verification."
-        );
-
-    } catch (error) {
-
-        if (error.code === "auth/email-already-in-use") {
-
-            showMessage("This email already has a GTI account.");
-
-        } else if (error.code === "auth/invalid-email") {
-
-            showMessage("Please enter a valid email address.");
-
-        } else if (error.code === "auth/weak-password") {
-
-            showMessage("Please choose a stronger password.");
-
-        } else {
-
-            showMessage("Registration failed: " + error.message);
-
-        }
-
-    } finally {
-
-        button.disabled = false;
-
-        button.textContent = "CREATE MY ACCOUNT";
-
-    }
-
+$("registerTab").addEventListener("click",()=>{
+ $("loginForm").style.display="none";
+ $("registerForm").style.display="block";
+ $("registerTab").classList.add("active");
+ $("loginTab").classList.remove("active");
+ showAccountMessage("Create your secure GTI account.");
 });
 
-
-// LOGIN
-
-loginForm.addEventListener("submit", async function(event) {
-
-    event.preventDefault();
-
-    const email =
-        document.getElementById("loginEmail").value.trim();
-
-    const password =
-        document.getElementById("loginPassword").value;
-
-    const button =
-        document.getElementById("loginButton");
-
-    button.disabled = true;
-
-    button.textContent = "LOGGING IN...";
-
-    try {
-
-        await signInWithEmailAndPassword(
-            auth,
-            email,
-            password
-        );
-
-        showMessage("Welcome back to Global Track Intelligence.");
-
-    } catch (error) {
-
-        if (
-            error.code === "auth/invalid-credential" ||
-            error.code === "auth/wrong-password" ||
-            error.code === "auth/user-not-found"
-        ) {
-
-            showMessage("Incorrect email or password.");
-
-        } else if (error.code === "auth/invalid-email") {
-
-            showMessage("Please enter a valid email address.");
-
-        } else {
-
-            showMessage("Login failed: " + error.message);
-
-        }
-
-    } finally {
-
-        button.disabled = false;
-
-        button.textContent = "LOGIN TO GTI";
-
-    }
-
+$("registerForm").addEventListener("submit",async event=>{
+ event.preventDefault();
+ const email=$("registerEmail").value.trim();
+ const password=$("registerPassword").value;
+ const confirm=$("confirmPassword").value;
+ const button=$("registerButton");
+ if(password!==confirm){showAccountMessage("Your passwords do not match.");return;}
+ if(password.length<6){showAccountMessage("Password must contain at least 6 characters.");return;}
+ button.disabled=true;
+ button.textContent="CREATING ACCOUNT...";
+ try{
+  const result=await createUserWithEmailAndPassword(auth,email,password);
+  await sendEmailVerification(result.user);
+  showAccountMessage("Account created! Please check your email for verification.");
+ }catch(error){
+  showAccountMessage("Registration failed: "+error.message);
+ }finally{
+  button.disabled=false;
+  button.textContent="CREATE MY ACCOUNT";
+ }
 });
 
-
-// FORGOT PASSWORD
-
-document.getElementById("forgotButton")
-.addEventListener("click", async function() {
-
-    const email =
-        document.getElementById("loginEmail").value.trim();
-
-    if (!email) {
-
-        showMessage("Enter your email address first.");
-
-        return;
-
-    }
-
-    try {
-
-        await sendPasswordResetEmail(auth, email);
-
-        showMessage(
-            "Password reset instructions have been sent to your email."
-        );
-
-    } catch (error) {
-
-        if (error.code === "auth/invalid-email") {
-
-            showMessage("Please enter a valid email address.");
-
-        } else {
-
-            showMessage("Unable to send reset email: " + error.message);
-
-        }
-
-    }
-
+$("loginForm").addEventListener("submit",async event=>{
+ event.preventDefault();
+ const button=$("loginButton");
+ button.disabled=true;
+ button.textContent="LOGGING IN...";
+ try{
+  await signInWithEmailAndPassword(auth,$("loginEmail").value.trim(),$("loginPassword").value);
+  showAccountMessage("Welcome back to Global Track Intelligence.");
+ }catch(error){
+  showAccountMessage("Login failed: "+error.message);
+ }finally{
+  button.disabled=false;
+  button.textContent="LOGIN TO GTI";
+ }
 });
 
-
-// AUTHENTICATION STATE
-
-onAuthStateChanged(auth, function(user) {
-
-    if (user) {
-
-        authPanel.style.display = "none";
-
-        dashboard.style.display = "block";
-
-        dashboardEmail.textContent = user.email;
-
-        dashboardUID.textContent = user.uid;
-
-        if (user.emailVerified) {
-
-            emailStatus.textContent = "VERIFIED";
-
-            verificationMessage.textContent =
-                "Your email address has been verified.";
-
-            resendVerification.style.display = "none";
-
-        } else {
-
-            emailStatus.textContent = "NOT VERIFIED";
-
-            verificationMessage.textContent =
-                "Please check your inbox and verify your email address.";
-
-            resendVerification.style.display = "block";
-
-        }
-
-        showMessage("You are securely signed in to GTI.");
-
-    } else {
-
-        authPanel.style.display = "block";
-
-        dashboard.style.display = "none";
-
-        showMessage("Secure account services powered by Firebase.");
-
-    }
-
+$("forgotButton").addEventListener("click",async()=>{
+ const email=$("loginEmail").value.trim();
+ if(!email){showAccountMessage("Enter your email address first.");return;}
+ try{
+  await sendPasswordResetEmail(auth,email);
+  showAccountMessage("Password reset instructions have been sent to your email.");
+ }catch(error){showAccountMessage("Unable to send reset email: "+error.message);}
 });
 
-
-// RESEND VERIFICATION EMAIL
-
-resendVerification.addEventListener("click", async function() {
-
-    const user = auth.currentUser;
-
-    if (!user) return;
-
-    try {
-
-        await sendEmailVerification(user);
-
-        verificationMessage.textContent =
-            "A new verification email has been sent.";
-
-    } catch (error) {
-
-        verificationMessage.textContent =
-            "Unable to send email: " + error.message;
-
-    }
-
+$("resendVerification").addEventListener("click",async()=>{
+ if(!auth.currentUser)return;
+ try{
+  await sendEmailVerification(auth.currentUser);
+  message("verificationMessage","A new verification email has been sent.");
+ }catch(error){message("verificationMessage","Unable to send email: "+error.message);}
 });
 
-
-// LOGOUT
-
-document.getElementById("logoutButton")
-.addEventListener("click", async function() {
-
-    try {
-
-        await signOut(auth);
-
-        showMessage("You have successfully logged out.");
-
-    } catch (error) {
-
-        showMessage("Logout failed: " + error.message);
-
-    }
-
+$("logoutButton").addEventListener("click",async()=>{
+ stopGPS();
+ try{await signOut(auth);showAccountMessage("You have successfully logged out.");}
+ catch(error){showAccountMessage("Logout failed: "+error.message);}
 });
 
+async function createSharingSession(){
+ if(!currentUser){message("createShareMessage","Please sign in first.");return;}
+ const button=$("createShareButton");
+ button.disabled=true;
+ button.textContent="CREATING INVITATION...";
+ try{
+  const shareRef=doc(collection(db,"shares"));
+  await setDoc(shareRef,{
+   ownerUid:currentUser.uid,
+   active:true,
+   createdAt:serverTimestamp()
+  });
+  message("createShareMessage","Your sharing invitation has been created.");
+ }catch(error){
+  message("createShareMessage","Could not create invitation: "+error.message);
+ }finally{
+  button.disabled=false;
+  button.textContent="CREATE SHARING INVITATION";
+ }
+}
+
+$("createShareButton").addEventListener("click",createSharingSession);
+
+function listenToMyShares(){
+ const q=query(collection(db,"shares"),where("ownerUid","==",currentUser.uid));
+ ownerSharesUnsubscribe=onSnapshot(q,snapshot=>{
+  myShares={};
+  const container=$("myShareCodes");
+  container.innerHTML="";
+  snapshot.forEach(shareDoc=>{
+   const data=shareDoc.data();
+   myShares[shareDoc.id]=data;
+   const item=document.createElement("div");
+   item.className="list-item";
+   const title=document.createElement("strong");
+   title.textContent="Invitation code";
+   const code=document.createElement("div");
+   code.className="code-display";
+   code.textContent=shareDoc.id;
+   const state=document.createElement("p");
+   state.textContent=data.active?"Status: ACTIVE":"Status: STOPPED";
+   item.append(title,code,state);
+   if(data.active){
+    const stop=document.createElement("button");
+    stop.className="small-button danger";
+    stop.textContent="STOP THIS SHARING SESSION";
+    stop.addEventListener("click",()=>stopSharing(shareDoc.id));
+    item.appendChild(stop);
+   }
+   container.appendChild(item);
+   listenForRequests(shareDoc.id);
+   listenToOwnLocation(shareDoc.id);
+  });
+  if(snapshot.empty)container.textContent="You have not created any sharing invitations yet.";
+ },error=>message("createShareMessage","Unable to load your sharing sessions: "+error.message));
+}
+
+async function stopSharing(shareId){
+ if(!confirm("Stop this sharing session? Approved viewers will lose access to its live location."))return;
+ try{
+  await updateDoc(doc(db,"shares",shareId),{active:false});
+  removeMarker("owner:"+shareId);
+  message("createShareMessage","Sharing session stopped.");
+ }catch(error){message("createShareMessage","Unable to stop sharing: "+error.message);}
+}
+
+function listenForRequests(shareId){
+ const key="requests:"+shareId;
+ if(viewerUnsubscribers.has(key))return;
+ const requestsRef=collection(db,"shares",shareId,"viewers");
+ const unsubscribe=onSnapshot(requestsRef,snapshot=>{
+  const container=$("incomingRequests");
+  const existing=container.querySelectorAll("[data-share='"+shareId+"']");
+  existing.forEach(item=>item.remove());
+  if(snapshot.empty&&container.textContent.trim()==="")container.textContent="No incoming requests.";
+  snapshot.forEach(viewerDoc=>{
+   const data=viewerDoc.data();
+   if(data.approved===true)return;
+   const item=document.createElement("div");
+   item.className="list-item";
+   item.dataset.share=shareId;
+   const text=document.createElement("p");
+   text.textContent="Request for invitation "+shareId+" from account: "+viewerDoc.id;
+   const approve=document.createElement("button");
+   approve.className="small-button approve";
+   approve.textContent="APPROVE";
+   approve.addEventListener("click",()=>approveViewer(shareId,viewerDoc.id,true));
+   const reject=document.createElement("button");
+   reject.className="small-button danger";
+   reject.textContent="REJECT";
+   reject.addEventListener("click",()=>approveViewer(shareId,viewerDoc.id,false));
+   item.append(text,approve,reject);
+   container.appendChild(item);
+  });
+ },error=>console.error("Request listener:",error));
+ viewerUnsubscribers.set(key,unsubscribe);
+}
+
+async function approveViewer(shareId,viewerId,approved){
+ try{
+  if(approved){
+   await updateDoc(doc(db,"shares",shareId,"viewers",viewerId),{approved:true});
+  }else{
+   await import("https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js")
+    .then(module=>module.deleteDoc(doc(db,"shares",shareId,"viewers",viewerId)));
+  }
+  message("createShareMessage",approved?"Location access approved.":"Access request rejected.");
+ }catch(error){message("createShareMessage","Unable to update request: "+error.message);}
+}
+
+function listenToOwnLocation(shareId){
+ const key="owner:"+shareId;
+ if(locationUnsubscribers.has(key))return;
+ const unsubscribe=onSnapshot(doc(db,"shares",shareId,"location","current"),snapshot=>{
+  if(!snapshot.exists())return;
+  const data=snapshot.data();
+  showMapLocation(key,"Your shared location",data);
+ },error=>console.error("Own location listener:",error));
+ locationUnsubscribers.set(key,unsubscribe);
+}
+
+async function requestAccess(){
+ if(!currentUser){message("requestMessage","Please sign in first.");return;}
+ const shareId=$("shareCodeInput").value.trim();
+ if(!shareId){message("requestMessage","Enter an invitation code.");return;}
+ if(shareId.length<10){message("requestMessage","That invitation code does not look valid.");return;}
+ try{
+  const shareSnapshot=await getDoc(doc(db,"shares",shareId));
+  if(!shareSnapshot.exists()||!shareSnapshot.data().active){
+   message("requestMessage","This invitation is invalid or no longer active.");
+   return;
+  }
+  if(shareSnapshot.data().ownerUid===currentUser.uid){
+   message("requestMessage","You cannot request access to your own location.");
+   return;
+  }
+  await setDoc(doc(db,"shares",shareId,"viewers",currentUser.uid),{
+   approved:false,
+   requestedAt:serverTimestamp()
+  });
+  saveRequestedShare(shareId);
+  listenForViewerApproval(shareId);
+  message("requestMessage","Your request has been sent. The location owner must approve it.");
+  $("shareCodeInput").value="";
+ }catch(error){
+  message("requestMessage","Request failed: "+error.message);
+ }
+}
+
+$("requestShareButton").addEventListener("click",requestAccess);
+
+function saveRequestedShare(shareId){
+ const key="gtiShares_"+currentUser.uid;
+ const saved=JSON.parse(localStorage.getItem(key)||"[]");
+ if(!saved.includes(shareId)){
+  saved.push(shareId);
+  localStorage.setItem(key,JSON.stringify(saved));
+ }
+}
+
+function loadRequestedShares(){
+ const key="gtiShares_"+currentUser.uid;
+ let saved=[];
+ try{saved=JSON.parse(localStorage.getItem(key)||"[]");}catch(e){}
+ saved.forEach(shareId=>listenForViewerApproval(shareId));
+}
+
+function listenForViewerApproval(shareId){
+ const key="viewer:"+shareId;
+ if(viewerUnsubscribers.has(key))return;
+ const viewerRef=doc(db,"shares",shareId,"viewers",currentUser.uid);
+ const unsubscribe=onSnapshot(viewerRef,async snapshot=>{
+  const container=$("approvedLocations");
+  if(!snapshot.exists()){
+   removeMarker(key);
+   return;
+  }
+  const data=snapshot.data();
+  if(data.approved!==true){
+   updateApprovedDisplay(shareId,"Awaiting owner approval");
+   return;
+  }
+  updateApprovedDisplay(shareId,"APPROVED — waiting for live location");
+  listenToSharedLocation(shareId);
+ },error=>console.error("Approval listener:",error));
+ viewerUnsubscribers.set(key,unsubscribe);
+}
+
+function updateApprovedDisplay(shareId,statusText){
+ const container=$("approvedLocations");
+ let item=document.getElementById("approved-"+shareId);
+ if(!item){
+  item=document.createElement("div");
+  item.className="list-item";
+  item.id="approved-"+shareId;
+  const title=document.createElement("p");
+  title.textContent="Sharing invitation: "+shareId;
+  const state=document.createElement("p");
+  state.className="approval-state";
+  item.append(title,state);
+  const stop=document.createElement("button");
+  stop.className="small-button danger";
+  stop.textContent="REMOVE";
+  stop.addEventListener("click",()=>removeAccess(shareId));
+  item.appendChild(stop);
+  container.appendChild(item);
+ }
+ item.querySelector(".approval-state").textContent=statusText;
+}
+
+function listenToSharedLocation(shareId){
+ const key="viewer:"+shareId;
+ if(locationUnsubscribers.has(key))return;
+ const unsubscribe=onSnapshot(doc(db,"shares",shareId,"location","current"),snapshot=>{
+  if(!snapshot.exists()){
+   updateApprovedDisplay(shareId,"Approved — waiting for the owner to start GPS.");
+   return;
+  }
+  const data=snapshot.data();
+  showMapLocation(key,"Authorised shared location",data);
+  updateApprovedDisplay(shareId,"LIVE — last update: "+(data.updatedAt?.toDate?data.updatedAt.toDate().toLocaleTimeString():"just now"));
+ },error=>{
+  removeMarker(key);
+  updateApprovedDisplay(shareId,"Location access unavailable. The owner may have stopped sharing.");
+  console.error("Shared location listener:",error);
+ });
+ locationUnsubscribers.set(key,unsubscribe);
+}
+
+async function removeAccess(shareId){
+ if(!confirm("Remove this shared location from your GTI account?"))return;
+ try{
+  const module=await import("https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js");
+  await module.deleteDoc(doc(db,"shares",shareId,"viewers",currentUser.uid));
+  const key="gtiShares_"+currentUser.uid;
+  const saved=JSON.parse(localStorage.getItem(key)||"[]").filter(id=>id!==shareId);
+  localStorage.setItem(key,JSON.stringify(saved));
+  if(viewerUnsubscribers.has("viewer:"+shareId)){
+   viewerUnsubscribers.get("viewer:"+shareId)();
+   viewerUnsubscribers.delete("viewer:"+shareId);
+  }
+  if(locationUnsubscribers.has("viewer:"+shareId)){
+   locationUnsubscribers.get("viewer:"+shareId)();
+   locationUnsubscribers.delete("viewer:"+shareId);
+  }
+  removeMarker("viewer:"+shareId);
+  const item=document.getElementById("approved-"+shareId);
+  if(item)item.remove();
+ }catch(error){message("requestMessage","Unable to remove access: "+error.message);}
+}
+
+onAuthStateChanged(auth,user=>{
+ clearListeners();
+ currentUser=user;
+ myShares={};
+ $("myShareCodes").innerHTML="";
+ $("incomingRequests").innerHTML="";
+ $("approvedLocations").innerHTML="";
+ if(user){
+  $("authPanel").style.display="none";
+  $("dashboard").style.display="block";
+  $("dashboardEmail").textContent=user.email||"";
+  $("dashboardUID").textContent=user.uid;
+  $("emailStatus").textContent=user.emailVerified?"VERIFIED":"NOT VERIFIED";
+  $("verificationMessage").textContent=user.emailVerified?"Your email address has been verified.":"Please check your inbox and verify your email address.";
+  $("resendVerification").style.display=user.emailVerified?"none":"block";
+  $("gpsStatus").textContent="Signed in. Start GPS tracking when you are ready.";
+  listenToMyShares();
+  loadRequestedShares();
+  $("incomingRequests").textContent="Loading incoming requests...";
+  $("approvedLocations").textContent="Loading approved locations...";
+  showAccountMessage("You are securely signed in to GTI.");
+ }else{
+  stopGPS();
+  $("authPanel").style.display="block";
+  $("dashboard").style.display="none";
+  $("gpsStatus").textContent="Sign in to use GPS tracking.";
+  $("incomingRequests").textContent="Sign in to load requests.";
+  $("approvedLocations").textContent="Sign in to load approved locations.";
+  showAccountMessage("Secure account services powered by Firebase.");
+ }
+});
 </script>
-
 </body>
 </html>
