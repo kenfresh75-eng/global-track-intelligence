@@ -1,35 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta name="google-site-verification" content="mc1O75Euk5T27E7OrVGpXexML2Oyc8Dzv4Lv-aUE_4k" />
+ <meta name="google-site-verification" content="mc1O75Euk5T27E7OrVGpXexML2Oyc8Dzv4Lv-aUE_4k">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="GTI Global Track Intelligence - Secure global location intelligence and authorised GPS tracking.">
+<meta name="description" content="GTI Global Track Intelligence - secure, consent-based location sharing, live GPS tracking and location history.">
+<meta name="google-site-verification" content="mc1O75Euk5T27E7OrVGpXexML2Oyc8Dzv4Lv-aUE_4k">
 <title>GTI | Global Track Intelligence</title>
-
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Arial,sans-serif;background:#08111f;color:#fff;line-height:1.6}
 header{background:#0d1b2e;padding:20px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #203650}
-.logo{font-size:25px;font-weight:bold;color:#35b6ff;letter-spacing:2px}
-.logo span{color:white}
-nav a{color:#d4dfed;text-decoration:none;margin-left:15px;font-size:14px}
-nav a:hover{color:#35b6ff}
+.logo{font-size:25px;font-weight:bold;color:#35b6ff;letter-spacing:2px}.logo span{color:white}
+nav a{color:#d4dfed;text-decoration:none;margin-left:15px;font-size:14px}nav a:hover{color:#35b6ff}
 .hero{padding:85px 7%;text-align:center;background:linear-gradient(135deg,#08111f,#102d4b,#08111f)}
-.hero h1{font-size:42px;margin-bottom:20px}
-.hero h1 span{color:#35b6ff}
-.hero p{color:#b7c6d9;max-width:650px;margin:auto}
+.hero h1{font-size:42px;margin-bottom:20px}.hero h1 span{color:#35b6ff}
+.hero p{color:#b7c6d9;max-width:720px;margin:auto}
 .badge{display:inline-block;color:#35b6ff;border:1px solid #247bb5;padding:7px 15px;border-radius:20px;margin-bottom:25px;font-size:12px;letter-spacing:2px}
 .button{display:inline-block;margin-top:25px;padding:14px 27px;background:#168de0;color:white;text-decoration:none;border-radius:6px;font-weight:bold;border:none;cursor:pointer}
-.section{padding:60px 7%}
-.section h2{text-align:center;font-size:29px;margin-bottom:15px}
+.section{padding:60px 7%}.section h2{text-align:center;font-size:29px;margin-bottom:15px}
 .subtitle{text-align:center;color:#a9b9cc;margin-bottom:35px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
 .card{background:#102137;border:1px solid #263e58;padding:25px;border-radius:10px}
-.card h3{color:#35b6ff;margin-bottom:12px}
-.card p{color:#b7c6d9;font-size:14px}
+.card h3{color:#35b6ff;margin-bottom:12px}.card p{color:#b7c6d9;font-size:14px}
 .account-container{max-width:550px;margin:auto;background:#102137;border:1px solid #263e58;padding:28px;border-radius:12px}
 .account-container h3{text-align:center;color:#35b6ff;margin-bottom:20px}
 .account-tabs{display:flex;gap:10px;margin-bottom:20px}
@@ -41,20 +35,16 @@ nav a:hover{color:#35b6ff}
 button:disabled{opacity:.6;cursor:wait}
 .forgot-button{display:block;background:none;border:none;color:#35b6ff;margin:15px auto;cursor:pointer}
 .account-message,.message{text-align:center;color:#35b6ff;margin-top:15px;overflow-wrap:anywhere;font-size:14px}
-.dashboard{display:none}
-.dashboard-details{background:#081827;padding:20px;border-radius:8px;margin-bottom:20px;overflow-wrap:anywhere}
+.dashboard{display:none}.dashboard-details{background:#081827;padding:20px;border-radius:8px;margin-bottom:20px;overflow-wrap:anywhere}
 .dashboard-details p{padding:9px 0;border-bottom:1px solid #263e58;color:#c5d4e5}
-.dashboard-details strong{color:#35b6ff}
-#verificationMessage{color:#ffc45c;font-size:13px;text-align:center;margin:12px 0}
-.panel{max-width:900px;margin:auto;background:#102137;border:1px solid #263e58;padding:25px;border-radius:12px}
+.dashboard-details strong{color:#35b6ff}#verificationMessage{color:#ffc45c;font-size:13px;text-align:center;margin:12px 0}
+.panel{max-width:1000px;margin:auto;background:#102137;border:1px solid #263e58;padding:25px;border-radius:12px}
 .panel h3{color:#35b6ff;text-align:center;margin-bottom:15px}
 .status{text-align:center;color:#35b6ff;margin:15px 0}
 .controls{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:20px 0}
 .controls button{padding:13px 20px;border:none;border-radius:6px;color:white;font-weight:bold;cursor:pointer}
-.start{background:#168de0}
-.stop{background:#d93636}
-.gps-data{margin-top:20px}
-.gps-data p{padding:10px 5px;border-bottom:1px solid #263e58;overflow-wrap:anywhere}
+.start{background:#168de0}.stop{background:#d93636}
+.gps-data{margin-top:20px}.gps-data p{padding:10px 5px;border-bottom:1px solid #263e58;overflow-wrap:anywhere}
 #map{width:100%;height:380px;margin-top:25px;border-radius:10px;border:1px solid #35b6ff;z-index:1}
 .google-link{display:inline-block;color:#35b6ff;margin-top:18px}
 .share-box{background:#081827;border:1px solid #263e58;border-radius:9px;padding:18px;margin:18px 0}
@@ -63,20 +53,14 @@ button:disabled{opacity:.6;cursor:wait}
 .list-item{background:#081827;border:1px solid #263e58;padding:14px;border-radius:7px;margin:10px 0;overflow-wrap:anywhere}
 .list-item p{color:#c5d4e5;font-size:14px;margin:5px 0}
 .small-button{padding:9px 13px;border:0;border-radius:5px;color:#fff;background:#168de0;margin:5px 5px 0 0;cursor:pointer}
-.danger{background:#d93636}
-.approve{background:#138b59}
+.danger{background:#d93636}.approve{background:#138b59}
+.history-box{margin-top:12px;padding:12px;background:#102d4b;border-radius:7px}
+.history-box p{font-size:13px;color:#d5e4f5;margin:5px 0}
 footer{padding:35px 7%;text-align:center;color:#8194aa;font-size:13px}
 footer a{color:#35b6ff;text-decoration:none;margin:0 10px}
-@media(max-width:650px){
-header{flex-direction:column;gap:15px}
-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-nav a{margin:0}
-.hero h1{font-size:32px}
-#map{height:300px}
-}
+@media(max-width:650px){header{flex-direction:column;gap:15px}nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}nav a{margin:0}.hero h1{font-size:32px}#map{height:300px}.panel{padding:15px}}
 </style>
 </head>
-
 <body>
 
 <header>
@@ -95,14 +79,13 @@ nav a{margin:0}
 <section class="hero" id="home">
 <div class="badge">GLOBAL LOCATION INTELLIGENCE</div>
 <h1>Welcome to <span>GTI</span></h1>
-<p>Global Track Intelligence is a technology platform designed to bring together geographical intelligence, authorised location services and advanced digital monitoring capabilities.</p>
+<p>Global Track Intelligence is a technology platform for geographical intelligence, authorised location services, live GPS sharing and movement history. Location sharing is controlled by the device owner.</p>
 <a href="#account" class="button">Create Your GTI Account</a>
 </section>
 
 <section class="section" id="account">
 <h2>GTI User Account</h2>
 <p class="subtitle">Create an account or securely access your Global Track Intelligence dashboard.</p>
-
 <div class="account-container">
 <div id="authPanel">
 <h3>WELCOME TO GTI</h3>
@@ -110,14 +93,12 @@ nav a{margin:0}
 <button id="loginTab" class="active">LOGIN</button>
 <button id="registerTab">CREATE ACCOUNT</button>
 </div>
-
 <form id="loginForm" class="account-form">
 <input type="email" id="loginEmail" placeholder="Email address" autocomplete="email" required>
 <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" required>
 <button type="submit" id="loginButton">LOGIN TO GTI</button>
 <button type="button" class="forgot-button" id="forgotButton">Forgot Password?</button>
 </form>
-
 <form id="registerForm" class="account-form" style="display:none">
 <input type="email" id="registerEmail" placeholder="Email address" autocomplete="email" required>
 <input type="password" id="registerPassword" placeholder="Create password (minimum 6 characters)" autocomplete="new-password" minlength="6" required>
@@ -136,6 +117,8 @@ nav a{margin:0}
 </div>
 <p id="verificationMessage"></p>
 <button id="resendVerification" class="dashboard-button" style="display:none">RESEND VERIFICATION EMAIL</button>
+<button id="enableNotifications" class="dashboard-button">ENABLE BROWSER NOTIFICATIONS</button>
+<p id="notificationStatus" class="message">Notifications are optional and work while this page is open.</p>
 <button id="logoutButton" class="dashboard-button" style="background:#d93636">LOG OUT</button>
 </div>
 <p id="accountMessage" class="account-message">Secure account services powered by Firebase.</p>
@@ -146,10 +129,10 @@ nav a{margin:0}
 <h2>Our Intelligence Services</h2>
 <p class="subtitle">Exploring the future of global location technology.</p>
 <div class="grid">
-<div class="card"><h3>GPS Intelligence</h3><p>Technology for authorised GPS positioning and real-time location sharing.</p></div>
+<div class="card"><h3>GPS Intelligence</h3><p>Authorised GPS positioning and real-time location sharing.</p></div>
 <div class="card"><h3>Global Mapping</h3><p>Geographical mapping and location visualisation across the world.</p></div>
-<div class="card"><h3>Device Intelligence</h3><p>Secure device registration and authorised device information services.</p></div>
-<div class="card"><h3>Location Analytics</h3><p>Geographical data analysis, movement history and location insights.</p></div>
+<div class="card"><h3>Movement History</h3><p>View recorded route points and timestamps from an authorised sharing session.</p></div>
+<div class="card"><h3>Location Analytics</h3><p>Basic movement distance and location insights during an active session.</p></div>
 </div>
 </section>
 
@@ -161,39 +144,41 @@ nav a{margin:0}
 <section class="section" id="gps">
 <h2>GTI Live GPS Tracking</h2>
 <p class="subtitle">Track your own device and share your location only with people you approve.</p>
-
 <div class="panel">
 <h3>LIVE TRACKING DASHBOARD</h3>
 <p id="gpsStatus" class="status">Sign in to use GPS tracking.</p>
-
 <div class="controls">
 <button class="start" id="startButton">START TRACKING</button>
 <button class="stop" id="stopButton">STOP TRACKING</button>
 </div>
-
 <div class="gps-data">
 <p>Latitude: <strong id="latitude">Waiting...</strong></p>
 <p>Longitude: <strong id="longitude">Waiting...</strong></p>
 <p>GPS Accuracy: <strong id="accuracy">Waiting...</strong></p>
 <p>Tracking Status: <strong id="trackingStatus">STOPPED</strong></p>
 <p>Last Update: <strong id="lastUpdate">Not available</strong></p>
+<p>Estimated distance this tracking session: <strong id="distanceTravelled">0 metres</strong></p>
+<p>Movement status: <strong id="movementStatus">Not available</strong></p>
 </div>
-
 <a id="googleMaps" class="google-link" href="#gps" target="_blank" rel="noopener">View My Location on Google Maps</a>
 <div id="map"></div>
+<div class="history-box">
+<p><strong>Map guide:</strong> Your live position is shown separately from a loaded route. Use the history buttons in Location Sharing to display a session's recorded route.</p>
+<p id="historyStatus">No history route loaded.</p>
+<button id="clearHistoryMap" class="small-button danger">CLEAR HISTORY ROUTE FROM MAP</button>
+</div>
 </div>
 </section>
 
 <section class="section" id="sharing">
 <h2>GTI Authorised Location Sharing</h2>
 <p class="subtitle">Share your location with trusted people. Every request requires your approval.</p>
-
 <div class="panel">
 <h3>LOCATION SHARING CONTROL CENTRE</h3>
 
 <div class="share-box">
 <h4>1. Create Your Sharing Invitation</h4>
-<p class="subtitle" style="margin:0 0 12px">Create a private invitation code. Give it only to the person you want to authorise.</p>
+<p style="color:#b7c6d9;font-size:14px">Create a private invitation code. Give it only to the person you want to authorise.</p>
 <button class="action-button" id="createShareButton">CREATE SHARING INVITATION</button>
 <p id="createShareMessage" class="message"></p>
 <div id="myShareCodes"></div>
@@ -215,15 +200,21 @@ nav a{margin:0}
 
 <div class="share-box">
 <h4>4. Locations You Are Authorised to View</h4>
-<p style="color:#b7c6d9;font-size:14px">Approved locations will appear on your global map when they are actively sharing.</p>
+<p style="color:#b7c6d9;font-size:14px">Approved locations appear on the map while their sharing session is active.</p>
 <div id="approvedLocations"><p class="message">No approved locations loaded.</p></div>
+</div>
+
+<div class="share-box">
+<h4>5. Location History</h4>
+<p style="color:#b7c6d9;font-size:14px">History is recorded while GPS tracking is running and at least one sharing session is active. Owners and approved viewers can load the route while the session remains active.</p>
+<p style="color:#ffc45c;font-size:13px;margin-top:8px">History recording uses a minimum interval of about 30 seconds, or a movement threshold of about 100 metres. GPS availability and browser operation affect recording.</p>
 </div>
 </div>
 </section>
 
 <section class="section" id="about">
 <h2>About Global Track Intelligence</h2>
-<p class="subtitle">GTI is being developed as a professional location intelligence platform focused on security, innovation and responsible technology.</p>
+<p class="subtitle">GTI is being developed as a professional location intelligence platform focused on security, innovation and responsible technology. Tracking is consent-based and requires the device owner's participation.</p>
 </section>
 
 <footer>
@@ -238,8 +229,7 @@ nav a{margin:0}
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script type="module">
-import {initializeApp}
-from "https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js";
+import {initializeApp} from "https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js";
 
 import {
  getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,
@@ -247,8 +237,8 @@ import {
 } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-auth.js";
 
 import {
- getFirestore,collection,doc,setDoc,addDoc,getDoc,query,where,
- onSnapshot,updateDoc,serverTimestamp
+ getFirestore,collection,doc,setDoc,addDoc,getDoc,getDocs,query,where,
+ onSnapshot,updateDoc,serverTimestamp,orderBy,limit,deleteDoc
 } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js";
 
 const firebaseConfig={
@@ -267,36 +257,74 @@ const db=getFirestore(app);
 const $=id=>document.getElementById(id);
 const accountMessage=$("accountMessage");
 
-function message(id,text){$(id).textContent=text;}
-function showAccountMessage(text){accountMessage.textContent=text;}
+const map=L.map("map").setView([9.082,8.6753],6);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
+ attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
 
 let currentUser=null;
 let watchID=null;
 let latestPosition=null;
 let ownMarker=null;
 let ownCircle=null;
-let shareUnsubscribers=[];
+let myShares={};
+let ownerSharesUnsubscribe=null;
+let incomingUnsubscribers=new Map();
 let locationUnsubscribers=new Map();
 let viewerUnsubscribers=new Map();
-let incomingUnsubscribe=null;
-let ownerSharesUnsubscribe=null;
-let myShares={};
 let mapMarkers=new Map();
+let historyLines=new Map();
+let lastHistoryPointByShare=new Map();
+let lastDistancePoint=null;
+let totalDistanceMetres=0;
+let requestCache=new Map();
 
-const map=L.map("map").setView([9.082,8.6753],6);
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
- attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
+function msg(id,text){$(id).textContent=text;}
+function showAccountMessage(text){accountMessage.textContent=text;}
 
 function clearListeners(){
- shareUnsubscribers.forEach(fn=>fn());
- shareUnsubscribers=[];
+ if(ownerSharesUnsubscribe){
+  ownerSharesUnsubscribe();
+  ownerSharesUnsubscribe=null;
+ }
+ incomingUnsubscribers.forEach(fn=>fn());
+ incomingUnsubscribers.clear();
  locationUnsubscribers.forEach(fn=>fn());
  locationUnsubscribers.clear();
  viewerUnsubscribers.forEach(fn=>fn());
  viewerUnsubscribers.clear();
- if(incomingUnsubscribe){incomingUnsubscribe();incomingUnsubscribe=null;}
- if(ownerSharesUnsubscribe){ownerSharesUnsubscribe();ownerSharesUnsubscribe=null;}
+}
+
+function haversine(a,b){
+ const R=6371000;
+ const rad=x=>x*Math.PI/180;
+ const dLat=rad(b.latitude-a.latitude);
+ const dLon=rad(b.longitude-a.longitude);
+ const x=Math.sin(dLat/2)**2+
+  Math.cos(rad(a.latitude))*Math.cos(rad(b.latitude))*
+  Math.sin(dLon/2)**2;
+ return 2*R*Math.atan2(Math.sqrt(x),Math.sqrt(1-x));
+}
+
+function formatDistance(m){
+ if(m<1000)return Math.round(m)+" metres";
+ return (m/1000).toFixed(2)+" km";
+}
+
+function showMapLocation(key,label,data){
+ if(typeof data.latitude!=="number"||
+    typeof data.longitude!=="number")return;
+
+ const point=[data.latitude,data.longitude];
+
+ if(mapMarkers.has(key)){
+  mapMarkers.get(key).setLatLng(point).bindPopup(label);
+ }else{
+  mapMarkers.set(
+   key,
+   L.marker(point).addTo(map).bindPopup(label)
+  );
+ }
 }
 
 function removeMarker(key){
@@ -306,16 +334,50 @@ function removeMarker(key){
  }
 }
 
-function showMapLocation(key,label,data){
- if(typeof data.latitude!=="number"||typeof data.longitude!=="number")return;
- const point=[data.latitude,data.longitude];
- if(mapMarkers.has(key)){
-  mapMarkers.get(key).setLatLng(point).bindPopup(label);
- }else{
-  const marker=L.marker(point).addTo(map).bindPopup(label);
-  mapMarkers.set(key,marker);
+function notifyUser(title,body){
+ if("Notification" in window &&
+    Notification.permission==="granted"){
+  try{
+   new Notification(title,{body});
+  }catch(e){
+   console.log("Notification unavailable",e);
+  }
  }
 }
+
+$("enableNotifications").addEventListener("click",async()=>{
+ if(!("Notification" in window)){
+  msg("notificationStatus","This browser does not support notifications.");
+  return;
+ }
+ try{
+  const permission=await Notification.requestPermission();
+  msg(
+   "notificationStatus",
+   permission==="granted"
+    ?"Browser notifications enabled."
+    :"Notifications were not enabled."
+  );
+ }catch(e){
+  msg("notificationStatus","Unable to request notification permission in this browser.");
+ }
+});
+
+function clearHistoryRoute(key){
+ if(historyLines.has(key)){
+  map.removeLayer(historyLines.get(key));
+  historyLines.delete(key);
+ }
+}
+
+$("clearHistoryMap").addEventListener("click",()=>{
+ historyLines.forEach(line=>map.removeLayer(line));
+ historyLines.clear();
+ msg(
+  "historyStatus",
+  "History route cleared from the map. Saved history remains in Firebase."
+ );
+});
 
 function stopGPS(){
  if(watchID!==null){
@@ -323,45 +385,137 @@ function stopGPS(){
   watchID=null;
  }
  $("trackingStatus").textContent="STOPPED";
- $("gpsStatus").textContent="GPS tracking stopped. Your location will no longer be uploaded.";
  $("startButton").disabled=false;
+
+ if(currentUser){
+  $("gpsStatus").textContent="GPS tracking stopped. No new GPS points will be uploaded.";
+ }
+}
+
+async function maybeRecordHistory(
+ shareId,latitude,longitude,accuracy
+){
+ const now=Date.now();
+ const previous=lastHistoryPointByShare.get(shareId);
+ const point={latitude,longitude};
+
+ const moved=previous?haversine(previous,point):Infinity;
+ const elapsed=previous?now-previous.time:Infinity;
+
+ if(previous && moved<100 && elapsed<30000)return;
+
+ try{
+  await addDoc(
+   collection(db,"shares",shareId,"history"),
+   {
+    latitude,
+    longitude,
+    accuracy,
+    recordedAt:serverTimestamp()
+   }
+  );
+
+  lastHistoryPointByShare.set(
+   shareId,
+   {latitude,longitude,time:now}
+  );
+ }catch(error){
+  console.error("History recording failed:",error);
+  msg(
+   "gpsStatus",
+   "Live GPS is running, but a history point could not be saved: "+error.message
+  );
+ }
 }
 
 async function uploadLocation(position){
  if(!currentUser)return;
+
  latestPosition=position;
+
  const latitude=position.coords.latitude;
  const longitude=position.coords.longitude;
  const accuracy=position.coords.accuracy;
+
+ const current={latitude,longitude};
 
  $("latitude").textContent=latitude.toFixed(6);
  $("longitude").textContent=longitude.toFixed(6);
  $("accuracy").textContent=Math.round(accuracy)+" metres";
  $("trackingStatus").textContent="ACTIVE";
  $("lastUpdate").textContent=new Date().toLocaleTimeString();
- $("gpsStatus").textContent="Your device is sharing its live GPS position with your active approved sessions.";
+
+ $("gpsStatus").textContent=
+  "Your device is sharing its live GPS position with active sharing sessions.";
+
+ if(lastDistancePoint){
+  const moved=haversine(lastDistancePoint,current);
+
+  if(moved>3 && moved<5000){
+   totalDistanceMetres+=moved;
+  }
+
+  $("movementStatus").textContent=
+   moved>8?"Moving":"Stationary or minor GPS adjustment";
+ }else{
+  $("movementStatus").textContent="Collecting first movement point";
+ }
+
+ lastDistancePoint=current;
+
+ $("distanceTravelled").textContent=
+  formatDistance(totalDistanceMetres);
 
  const point=[latitude,longitude];
+
  if(ownMarker){
   ownMarker.setLatLng(point);
   ownCircle.setLatLng(point);
   ownCircle.setRadius(accuracy);
  }else{
-  ownMarker=L.circleMarker(point,{radius:9,color:"#fff",weight:3,fillColor:"#168de0",fillOpacity:1}).addTo(map).bindPopup("Your device");
-  ownCircle=L.circle(point,{radius:accuracy,color:"#168de0",fillOpacity:.12}).addTo(map);
- }
- map.panTo(point);
- $("googleMaps").href="https://www.google.com/maps?q="+latitude+","+longitude;
+  ownMarker=L.circleMarker(point,{
+   radius:9,
+   color:"#fff",
+   weight:3,
+   fillColor:"#168de0",
+   fillOpacity:1
+  }).addTo(map).bindPopup("Your device");
 
- const activeShares=Object.entries(myShares).filter(([id,data])=>data.active===true);
+  ownCircle=L.circle(point,{
+   radius:accuracy,
+   color:"#168de0",
+   fillOpacity:.12
+  }).addTo(map);
+ }
+
+ map.panTo(point);
+
+ $("googleMaps").href=
+  "https://www.google.com/maps?q="+latitude+","+longitude;
+
+ const activeShares=Object.entries(myShares)
+  .filter(([,data])=>data.active===true);
+
  for(const [shareId] of activeShares){
   try{
-   await setDoc(doc(db,"shares",shareId,"location","current"),{
-    latitude,longitude,accuracy,updatedAt:serverTimestamp()
-   });
+   await setDoc(
+    doc(db,"shares",shareId,"location","current"),
+    {
+     latitude,
+     longitude,
+     accuracy,
+     updatedAt:serverTimestamp()
+    }
+   );
+
+   await maybeRecordHistory(
+    shareId,latitude,longitude,accuracy
+   );
+
   }catch(error){
    console.error("Location upload failed:",error);
-   $("gpsStatus").textContent="GPS is working, but a sharing update was blocked. Check your sharing session.";
+   $("gpsStatus").textContent=
+    "GPS is running, but an update was blocked. Check that your email is verified and the sharing session is active.";
   }
  }
 }
@@ -372,31 +526,55 @@ function startGPS(){
   location.hash="#account";
   return;
  }
+
+ if(!currentUser.emailVerified){
+  $("gpsStatus").textContent="Please verify your email address before using GPS.";
+  return;
+ }
+
  if(watchID!==null){
   $("gpsStatus").textContent="GPS tracking is already active.";
   return;
  }
+
  if(!navigator.geolocation||!window.isSecureContext){
-  $("gpsStatus").textContent="GPS requires browser support and a secure HTTPS connection.";
+  $("gpsStatus").textContent=
+   "GPS requires browser support and a secure HTTPS connection.";
   return;
  }
- $("gpsStatus").textContent="Requesting permission to access your device location...";
+
+ $("gpsStatus").textContent=
+  "Requesting permission to access your device location.";
+
  $("trackingStatus").textContent="STARTING";
  $("startButton").disabled=true;
 
  watchID=navigator.geolocation.watchPosition(
   position=>{
-   uploadLocation(position).catch(error=>console.error(error));
+   uploadLocation(position).catch(e=>console.error(e));
    $("startButton").disabled=false;
   },
   error=>{
    stopGPS();
-   if(error.code===1)$("gpsStatus").textContent="Location permission denied. Allow location access in your browser settings.";
-   else if(error.code===2)$("gpsStatus").textContent="Your device could not determine its location.";
-   else if(error.code===3)$("gpsStatus").textContent="GPS request timed out. Please try again.";
-   else $("gpsStatus").textContent="Unable to retrieve your location.";
+
+   if(error.code===1){
+    $("gpsStatus").textContent=
+     "Location permission denied. Allow location access in browser settings.";
+   }else if(error.code===2){
+    $("gpsStatus").textContent=
+     "Your device could not determine its location.";
+   }else if(error.code===3){
+    $("gpsStatus").textContent=
+     "GPS request timed out. Please try again.";
+   }else{
+    $("gpsStatus").textContent="Unable to retrieve your location.";
+   }
   },
-  {enableHighAccuracy:true,timeout:20000,maximumAge:3000}
+  {
+   enableHighAccuracy:true,
+   timeout:20000,
+   maximumAge:3000
+  }
  );
 }
 
@@ -404,41 +582,67 @@ $("startButton").addEventListener("click",startGPS);
 $("stopButton").addEventListener("click",stopGPS);
 
 window.addEventListener("pagehide",()=>{
- if(watchID!==null)navigator.geolocation.clearWatch(watchID);
+ if(watchID!==null){
+  navigator.geolocation.clearWatch(watchID);
+ }
 });
 
-window.addEventListener("load",()=>setTimeout(()=>map.invalidateSize(),300));
+window.addEventListener("load",()=>{
+ setTimeout(()=>map.invalidateSize(),300);
+});
 
 $("loginTab").addEventListener("click",()=>{
  $("loginForm").style.display="block";
  $("registerForm").style.display="none";
+
  $("loginTab").classList.add("active");
  $("registerTab").classList.remove("active");
+
  showAccountMessage("Enter your email and password to log in.");
 });
 
 $("registerTab").addEventListener("click",()=>{
  $("loginForm").style.display="none";
  $("registerForm").style.display="block";
+
  $("registerTab").classList.add("active");
  $("loginTab").classList.remove("active");
+
  showAccountMessage("Create your secure GTI account.");
 });
 
 $("registerForm").addEventListener("submit",async event=>{
  event.preventDefault();
+
  const email=$("registerEmail").value.trim();
  const password=$("registerPassword").value;
  const confirm=$("confirmPassword").value;
  const button=$("registerButton");
- if(password!==confirm){showAccountMessage("Your passwords do not match.");return;}
- if(password.length<6){showAccountMessage("Password must contain at least 6 characters.");return;}
+
+ if(password!==confirm){
+  showAccountMessage("Your passwords do not match.");
+  return;
+ }
+
+ if(password.length<6){
+  showAccountMessage("Password must contain at least 6 characters.");
+  return;
+ }
+
  button.disabled=true;
  button.textContent="CREATING ACCOUNT...";
+
  try{
-  const result=await createUserWithEmailAndPassword(auth,email,password);
+  const result=await createUserWithEmailAndPassword(
+   auth,email,password
+  );
+
   await sendEmailVerification(result.user);
-  showAccountMessage("Account created! Please check your email for verification.");
+
+  showAccountMessage(
+   "Account created! Please check your email for verification before using tracking."
+  );
+
  }catch(error){
   showAccountMessage("Registration failed: "+error.message);
  }finally{
@@ -449,12 +653,20 @@ $("registerForm").addEventListener("submit",async event=>{
 
 $("loginForm").addEventListener("submit",async event=>{
  event.preventDefault();
+
  const button=$("loginButton");
  button.disabled=true;
  button.textContent="LOGGING IN...";
+
  try{
-  await signInWithEmailAndPassword(auth,$("loginEmail").value.trim(),$("loginPassword").value);
+  await signInWithEmailAndPassword(
+   auth,
+   $("loginEmail").value.trim(),
+   $("loginPassword").value
+  );
+
   showAccountMessage("Welcome back to Global Track Intelligence.");
+
  }catch(error){
   showAccountMessage("Login failed: "+error.message);
  }finally{
@@ -465,42 +677,77 @@ $("loginForm").addEventListener("submit",async event=>{
 
 $("forgotButton").addEventListener("click",async()=>{
  const email=$("loginEmail").value.trim();
- if(!email){showAccountMessage("Enter your email address first.");return;}
+
+ if(!email){
+  showAccountMessage("Enter your email address first.");
+  return;
+ }
+
  try{
   await sendPasswordResetEmail(auth,email);
-  showAccountMessage("Password reset instructions have been sent to your email.");
- }catch(error){showAccountMessage("Unable to send reset email: "+error.message);}
+  showAccountMessage(
+   "Password reset instructions have been sent to your email."
+  );
+ }catch(error){
+  showAccountMessage(
+   "Unable to send reset email: "+error.message
+  );
+ }
 });
 
 $("resendVerification").addEventListener("click",async()=>{
  if(!auth.currentUser)return;
+
  try{
   await sendEmailVerification(auth.currentUser);
-  message("verificationMessage","A new verification email has been sent.");
- }catch(error){message("verificationMessage","Unable to send email: "+error.message);}
+  msg("verificationMessage","A new verification email has been sent.");
+ }catch(error){
+  msg("verificationMessage","Unable to send email: "+error.message);
+ }
 });
 
 $("logoutButton").addEventListener("click",async()=>{
  stopGPS();
- try{await signOut(auth);showAccountMessage("You have successfully logged out.");}
- catch(error){showAccountMessage("Logout failed: "+error.message);}
+
+ try{
+  await signOut(auth);
+  showAccountMessage("You have successfully logged out.");
+ }catch(error){
+  showAccountMessage("Logout failed: "+error.message);
+ }
 });
 
 async function createSharingSession(){
- if(!currentUser){message("createShareMessage","Please sign in first.");return;}
+ if(!currentUser){
+  msg("createShareMessage","Please sign in first.");
+  return;
+ }
+
+ if(!currentUser.emailVerified){
+  msg("createShareMessage","Please verify your email first.");
+  return;
+ }
+
  const button=$("createShareButton");
  button.disabled=true;
  button.textContent="CREATING INVITATION...";
+
  try{
   const shareRef=doc(collection(db,"shares"));
+
   await setDoc(shareRef,{
    ownerUid:currentUser.uid,
    active:true,
    createdAt:serverTimestamp()
   });
-  message("createShareMessage","Your sharing invitation has been created.");
+
+  msg(
+   "createShareMessage",
+   "Your sharing invitation has been created. Share the code only with the person you authorise."
+  );
+
  }catch(error){
-  message("createShareMessage","Could not create invitation: "+error.message);
+  msg("createShareMessage","Could not create invitation: "+error.message);
  }finally{
   button.disabled=false;
   button.textContent="CREATE SHARING INVITATION";
@@ -509,137 +756,430 @@ async function createSharingSession(){
 
 $("createShareButton").addEventListener("click",createSharingSession);
 
-function listenToMyShares(){
- const q=query(collection(db,"shares"),where("ownerUid","==",currentUser.uid));
- ownerSharesUnsubscribe=onSnapshot(q,snapshot=>{
-  myShares={};
-  const container=$("myShareCodes");
-  container.innerHTML="";
-  snapshot.forEach(shareDoc=>{
-   const data=shareDoc.data();
-   myShares[shareDoc.id]=data;
+function renderIncomingRequests(){
+ const container=$("incomingRequests");
+ container.innerHTML="";
+
+ let count=0;
+
+ requestCache.forEach((requests,shareId)=>{
+  requests.forEach((request,viewerId)=>{
+   count++;
+
    const item=document.createElement("div");
    item.className="list-item";
-   const title=document.createElement("strong");
-   title.textContent="Invitation code";
-   const code=document.createElement("div");
-   code.className="code-display";
-   code.textContent=shareDoc.id;
-   const state=document.createElement("p");
-   state.textContent=data.active?"Status: ACTIVE":"Status: STOPPED";
-   item.append(title,code,state);
-   if(data.active){
-    const stop=document.createElement("button");
-    stop.className="small-button danger";
-    stop.textContent="STOP THIS SHARING SESSION";
-    stop.addEventListener("click",()=>stopSharing(shareDoc.id));
-    item.appendChild(stop);
-   }
-   container.appendChild(item);
-   listenForRequests(shareDoc.id);
-   listenToOwnLocation(shareDoc.id);
-  });
-  if(snapshot.empty)container.textContent="You have not created any sharing invitations yet.";
- },error=>message("createShareMessage","Unable to load your sharing sessions: "+error.message));
-}
 
-async function stopSharing(shareId){
- if(!confirm("Stop this sharing session? Approved viewers will lose access to its live location."))return;
- try{
-  await updateDoc(doc(db,"shares",shareId),{active:false});
-  removeMarker("owner:"+shareId);
-  message("createShareMessage","Sharing session stopped.");
- }catch(error){message("createShareMessage","Unable to stop sharing: "+error.message);}
-}
+   const p=document.createElement("p");
+   p.textContent=
+    "Invitation "+shareId+" — request from account "+viewerId;
 
-function listenForRequests(shareId){
- const key="requests:"+shareId;
- if(viewerUnsubscribers.has(key))return;
- const requestsRef=collection(db,"shares",shareId,"viewers");
- const unsubscribe=onSnapshot(requestsRef,snapshot=>{
-  const container=$("incomingRequests");
-  const existing=container.querySelectorAll("[data-share='"+shareId+"']");
-  existing.forEach(item=>item.remove());
-  if(snapshot.empty&&container.textContent.trim()==="")container.textContent="No incoming requests.";
-  snapshot.forEach(viewerDoc=>{
-   const data=viewerDoc.data();
-   if(data.approved===true)return;
-   const item=document.createElement("div");
-   item.className="list-item";
-   item.dataset.share=shareId;
-   const text=document.createElement("p");
-   text.textContent="Request for invitation "+shareId+" from account: "+viewerDoc.id;
    const approve=document.createElement("button");
    approve.className="small-button approve";
    approve.textContent="APPROVE";
-   approve.addEventListener("click",()=>approveViewer(shareId,viewerDoc.id,true));
+   approve.addEventListener(
+    "click",
+    ()=>approveViewer(shareId,viewerId,true)
+   );
+
    const reject=document.createElement("button");
    reject.className="small-button danger";
    reject.textContent="REJECT";
-   reject.addEventListener("click",()=>approveViewer(shareId,viewerDoc.id,false));
-   item.append(text,approve,reject);
+   reject.addEventListener(
+    "click",
+    ()=>approveViewer(shareId,viewerId,false)
+   );
+
+   item.append(p,approve,reject);
    container.appendChild(item);
   });
- },error=>console.error("Request listener:",error));
- viewerUnsubscribers.set(key,unsubscribe);
+ });
+
+ if(!count){
+  container.textContent="No pending access requests.";
+ }
+}
+
+function listenForRequests(shareId){
+ if(incomingUnsubscribers.has(shareId))return;
+
+ const unsub=onSnapshot(
+  collection(db,"shares",shareId,"viewers"),
+  snapshot=>{
+   const requests=new Map();
+
+   snapshot.forEach(viewerDoc=>{
+    const data=viewerDoc.data();
+
+    if(data.approved!==true){
+     requests.set(viewerDoc.id,data);
+    }
+   });
+
+   const old=requestCache.get(shareId)||new Map();
+
+   if(requests.size>old.size){
+    notifyUser(
+     "GTI access request",
+     "Someone has requested permission to view your location."
+    );
+   }
+
+   requestCache.set(shareId,requests);
+   renderIncomingRequests();
+  },
+  error=>console.error("Incoming request listener:",error)
+ );
+
+ incomingUnsubscribers.set(shareId,unsub);
 }
 
 async function approveViewer(shareId,viewerId,approved){
  try{
+  const ref=doc(
+   db,"shares",shareId,"viewers",viewerId
+  );
+
   if(approved){
-   await updateDoc(doc(db,"shares",shareId,"viewers",viewerId),{approved:true});
+   await updateDoc(ref,{approved:true});
+   msg("createShareMessage","Location access approved.");
   }else{
-   await import("https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js")
-    .then(module=>module.deleteDoc(doc(db,"shares",shareId,"viewers",viewerId)));
+   await deleteDoc(ref);
+   msg("createShareMessage","Access request rejected.");
   }
-  message("createShareMessage",approved?"Location access approved.":"Access request rejected.");
- }catch(error){message("createShareMessage","Unable to update request: "+error.message);}
+
+ }catch(error){
+  msg("createShareMessage","Unable to update request: "+error.message);
+ }
 }
 
 function listenToOwnLocation(shareId){
  const key="owner:"+shareId;
+
  if(locationUnsubscribers.has(key))return;
- const unsubscribe=onSnapshot(doc(db,"shares",shareId,"location","current"),snapshot=>{
-  if(!snapshot.exists())return;
-  const data=snapshot.data();
-  showMapLocation(key,"Your shared location",data);
- },error=>console.error("Own location listener:",error));
- locationUnsubscribers.set(key,unsubscribe);
+
+ const unsub=onSnapshot(
+  doc(db,"shares",shareId,"location","current"),
+  snapshot=>{
+   if(snapshot.exists()){
+    showMapLocation(
+     key,
+     "Your shared location",
+     snapshot.data()
+    );
+   }
+  },
+  error=>console.error("Own location listener:",error)
+ );
+
+ locationUnsubscribers.set(key,unsub);
 }
 
-async function requestAccess(){
- if(!currentUser){message("requestMessage","Please sign in first.");return;}
- const shareId=$("shareCodeInput").value.trim();
- if(!shareId){message("requestMessage","Enter an invitation code.");return;}
- if(shareId.length<10){message("requestMessage","That invitation code does not look valid.");return;}
+async function stopSharing(shareId){
+ if(!confirm(
+  "Stop this sharing session? Approved viewers will lose access to live location and history."
+ ))return;
+
  try{
-  const shareSnapshot=await getDoc(doc(db,"shares",shareId));
-  if(!shareSnapshot.exists()||!shareSnapshot.data().active){
-   message("requestMessage","This invitation is invalid or no longer active.");
-   return;
-  }
-  if(shareSnapshot.data().ownerUid===currentUser.uid){
-   message("requestMessage","You cannot request access to your own location.");
-   return;
-  }
-  await setDoc(doc(db,"shares",shareId,"viewers",currentUser.uid),{
-   approved:false,
-   requestedAt:serverTimestamp()
-  });
-  saveRequestedShare(shareId);
-  listenForViewerApproval(shareId);
-  message("requestMessage","Your request has been sent. The location owner must approve it.");
-  $("shareCodeInput").value="";
+  await updateDoc(
+   doc(db,"shares",shareId),
+   {active:false}
+  );
+
+  removeMarker("owner:"+shareId);
+
+  msg(
+   "createShareMessage",
+   "Sharing session stopped. No further history points will be recorded."
+  );
+
  }catch(error){
-  message("requestMessage","Request failed: "+error.message);
+  msg("createShareMessage","Unable to stop sharing: "+error.message);
  }
 }
 
-$("requestShareButton").addEventListener("click",requestAccess);
+async function loadHistory(shareId,label){
+ const status=$("historyStatus");
+ status.textContent="Loading location history...";
+
+ try{
+  const historyQuery=query(
+   collection(db,"shares",shareId,"history"),
+   orderBy("recordedAt","desc"),
+   limit(500)
+  );
+
+  const result=await getDocs(historyQuery);
+  const points=[];
+
+  result.forEach(item=>{
+   const d=item.data();
+
+   if(
+    typeof d.latitude==="number"&&
+    typeof d.longitude==="number"
+   ){
+    points.push({
+     latitude:d.latitude,
+     longitude:d.longitude,
+     recordedAt:d.recordedAt
+    });
+   }
+  });
+
+  points.reverse();
+
+  if(!points.length){
+   status.textContent=
+    "No saved history points yet. Start GPS tracking while this sharing session is active.";
+   return;
+  }
+
+  const latlngs=points.map(
+   p=>[p.latitude,p.longitude]
+  );
+
+  const key="history:"+shareId;
+  clearHistoryRoute(key);
+
+  if(latlngs.length>1){
+   const line=L.polyline(latlngs,{
+    color:"#ffb02e",
+    weight:5,
+    opacity:.85
+   }).addTo(map);
+
+   historyLines.set(key,line);
+   map.fitBounds(line.getBounds(),{padding:[25,25]});
+
+  }else{
+   map.setView(latlngs[0],15);
+
+   L.circleMarker(latlngs[0],{
+    radius:8,
+    color:"#ffb02e"
+   }).addTo(map);
+  }
+
+  const first=points[0].recordedAt?.toDate
+   ?points[0].recordedAt.toDate().toLocaleString()
+   :"time unavailable";
+
+  const last=points[points.length-1].recordedAt?.toDate
+   ?points[points.length-1].recordedAt.toDate().toLocaleString()
+   :"time unavailable";
+
+  status.textContent=
+   label+": loaded "+points.length+
+   " history point(s). From "+first+" to "+last+".";
+
+  renderHistoryDetails(shareId,points);
+
+ }catch(error){
+  console.error("History load failed:",error);
+
+  status.textContent=
+   "Unable to load history: "+error.message+
+   ". Check that the session is active and you have permission.";
+ }
+}
+
+function renderHistoryDetails(shareId,points){
+ let box=document.getElementById(
+  "history-details-"+shareId
+ );
+
+ if(!box){
+  box=document.createElement("div");
+  box.id="history-details-"+shareId;
+  box.className="history-box";
+
+  const parent=document.querySelector("#sharing .panel");
+  parent.appendChild(box);
+ }
+
+ box.innerHTML="";
+
+ const heading=document.createElement("p");
+ heading.textContent="History details for session "+shareId;
+ box.appendChild(heading);
+
+ const recent=points.slice(-10).reverse();
+
+ recent.forEach((p,index)=>{
+  const row=document.createElement("p");
+
+  const time=p.recordedAt?.toDate
+   ?p.recordedAt.toDate().toLocaleString()
+   :"Time pending";
+
+  row.textContent=
+   (index+1)+". "+time+" — "+
+   p.latitude.toFixed(5)+", "+
+   p.longitude.toFixed(5);
+
+  box.appendChild(row);
+ });
+}
+
+function listenToMyShares(){
+ const q=query(
+  collection(db,"shares"),
+  where("ownerUid","==",currentUser.uid)
+ );
+
+ ownerSharesUnsubscribe=onSnapshot(
+  q,
+  snapshot=>{
+   myShares={};
+
+   const container=$("myShareCodes");
+   container.innerHTML="";
+
+   snapshot.forEach(shareDoc=>{
+    const data=shareDoc.data();
+    const shareId=shareDoc.id;
+
+    myShares[shareId]=data;
+
+    const item=document.createElement("div");
+    item.className="list-item";
+
+    const title=document.createElement("strong");
+    title.textContent="Invitation code";
+
+    const code=document.createElement("div");
+    code.className="code-display";
+    code.textContent=shareId;
+
+    const state=document.createElement("p");
+    state.textContent=
+     data.active?"Status: ACTIVE":"Status: STOPPED";
+
+    item.append(title,code,state);
+
+    if(data.active){
+     const stop=document.createElement("button");
+     stop.className="small-button danger";
+     stop.textContent="STOP THIS SHARING SESSION";
+     stop.addEventListener(
+      "click",
+      ()=>stopSharing(shareId)
+     );
+     item.appendChild(stop);
+
+     const history=document.createElement("button");
+     history.className="small-button";
+     history.textContent="LOAD LOCATION HISTORY";
+     history.addEventListener(
+      "click",
+      ()=>loadHistory(shareId,"Your session")
+     );
+     item.appendChild(history);
+    }
+
+    container.appendChild(item);
+
+    listenForRequests(shareId);
+    listenToOwnLocation(shareId);
+   });
+
+   if(snapshot.empty){
+    container.textContent=
+     "You have not created any sharing invitations yet.";
+   }
+  },
+  error=>{
+   msg(
+    "createShareMessage",
+    "Unable to load sharing sessions: "+error.message
+   );
+  }
+ );
+}
+
+async function requestAccess(){
+ if(!currentUser){
+  msg("requestMessage","Please sign in first.");
+  return;
+ }
+
+ if(!currentUser.emailVerified){
+  msg("requestMessage","Please verify your email first.");
+  return;
+ }
+
+ const shareId=$("shareCodeInput").value.trim();
+
+ if(!shareId){
+  msg("requestMessage","Enter an invitation code.");
+  return;
+ }
+
+ if(shareId.length<10){
+  msg("requestMessage","That invitation code does not look valid.");
+  return;
+ }
+
+ try{
+  const shareSnapshot=await getDoc(
+   doc(db,"shares",shareId)
+  );
+
+  if(
+   !shareSnapshot.exists()||
+   !shareSnapshot.data().active
+  ){
+   msg(
+    "requestMessage",
+    "This invitation is invalid or no longer active."
+   );
+   return;
+  }
+
+  if(shareSnapshot.data().ownerUid===currentUser.uid){
+   msg(
+    "requestMessage",
+    "You cannot request access to your own location."
+   );
+   return;
+  }
+
+  await setDoc(
+   doc(db,"shares",shareId,"viewers",currentUser.uid),
+   {
+    approved:false,
+    requestedAt:serverTimestamp()
+   }
+  );
+
+  saveRequestedShare(shareId);
+  listenForViewerApproval(shareId);
+
+  msg(
+   "requestMessage",
+   "Your request has been sent. The location owner must approve it."
+  );
+
+  $("shareCodeInput").value="";
+
+ }catch(error){
+  msg("requestMessage","Request failed: "+error.message);
+ }
+}
+
+$("requestShareButton").addEventListener(
+ "click",
+ requestAccess
+);
 
 function saveRequestedShare(shareId){
  const key="gtiShares_"+currentUser.uid;
- const saved=JSON.parse(localStorage.getItem(key)||"[]");
+ let saved=[];
+
+ try{
+  saved=JSON.parse(localStorage.getItem(key)||"[]");
+ }catch(e){}
+
  if(!saved.includes(shareId)){
   saved.push(shareId);
   localStorage.setItem(key,JSON.stringify(saved));
@@ -649,123 +1189,265 @@ function saveRequestedShare(shareId){
 function loadRequestedShares(){
  const key="gtiShares_"+currentUser.uid;
  let saved=[];
- try{saved=JSON.parse(localStorage.getItem(key)||"[]");}catch(e){}
- saved.forEach(shareId=>listenForViewerApproval(shareId));
+
+ try{
+  saved=JSON.parse(localStorage.getItem(key)||"[]");
+ }catch(e){}
+
+ saved.forEach(id=>listenForViewerApproval(id));
 }
 
 function listenForViewerApproval(shareId){
  const key="viewer:"+shareId;
+
  if(viewerUnsubscribers.has(key))return;
- const viewerRef=doc(db,"shares",shareId,"viewers",currentUser.uid);
- const unsubscribe=onSnapshot(viewerRef,async snapshot=>{
-  const container=$("approvedLocations");
-  if(!snapshot.exists()){
-   removeMarker(key);
-   return;
-  }
-  const data=snapshot.data();
-  if(data.approved!==true){
-   updateApprovedDisplay(shareId,"Awaiting owner approval");
-   return;
-  }
-  updateApprovedDisplay(shareId,"APPROVED — waiting for live location");
-  listenToSharedLocation(shareId);
- },error=>console.error("Approval listener:",error));
- viewerUnsubscribers.set(key,unsubscribe);
+
+ const unsub=onSnapshot(
+  doc(db,"shares",shareId,"viewers",currentUser.uid),
+  snapshot=>{
+   if(!snapshot.exists()){
+    removeMarker(key);
+    return;
+   }
+
+   const data=snapshot.data();
+
+   if(data.approved!==true){
+    updateApprovedDisplay(
+     shareId,
+     "Awaiting owner approval",
+     false
+    );
+    return;
+   }
+
+   updateApprovedDisplay(
+    shareId,
+    "APPROVED — waiting for live location",
+    true
+   );
+
+   listenToSharedLocation(shareId);
+  },
+  error=>console.error("Approval listener:",error)
+ );
+
+ viewerUnsubscribers.set(key,unsub);
 }
 
-function updateApprovedDisplay(shareId,statusText){
+function updateApprovedDisplay(shareId,statusText,approved){
  const container=$("approvedLocations");
+
  let item=document.getElementById("approved-"+shareId);
+
  if(!item){
   item=document.createElement("div");
   item.className="list-item";
   item.id="approved-"+shareId;
+
   const title=document.createElement("p");
   title.textContent="Sharing invitation: "+shareId;
+
   const state=document.createElement("p");
   state.className="approval-state";
+
   item.append(title,state);
-  const stop=document.createElement("button");
-  stop.className="small-button danger";
-  stop.textContent="REMOVE";
-  stop.addEventListener("click",()=>removeAccess(shareId));
-  item.appendChild(stop);
   container.appendChild(item);
  }
+
  item.querySelector(".approval-state").textContent=statusText;
+
+ let history=item.querySelector(".history-button");
+
+ if(approved&&!history){
+  history=document.createElement("button");
+  history.className="small-button history-button";
+  history.textContent="LOAD LOCATION HISTORY";
+
+  history.addEventListener(
+   "click",
+   ()=>loadHistory(shareId,"Authorised shared session")
+  );
+
+  item.appendChild(history);
+ }
+
+ let remove=item.querySelector(".remove-button");
+
+ if(!remove){
+  remove=document.createElement("button");
+  remove.className="small-button danger remove-button";
+  remove.textContent="REMOVE ACCESS";
+
+  remove.addEventListener(
+   "click",
+   ()=>removeAccess(shareId)
+  );
+
+  item.appendChild(remove);
+ }
 }
 
 function listenToSharedLocation(shareId){
  const key="viewer:"+shareId;
+
  if(locationUnsubscribers.has(key))return;
- const unsubscribe=onSnapshot(doc(db,"shares",shareId,"location","current"),snapshot=>{
-  if(!snapshot.exists()){
-   updateApprovedDisplay(shareId,"Approved — waiting for the owner to start GPS.");
-   return;
+
+ const unsub=onSnapshot(
+  doc(db,"shares",shareId,"location","current"),
+  snapshot=>{
+   if(!snapshot.exists()){
+    updateApprovedDisplay(
+     shareId,
+     "Approved — waiting for the owner to start GPS",
+     true
+    );
+    return;
+   }
+
+   const data=snapshot.data();
+
+   showMapLocation(
+    key,
+    "Authorised shared location",
+    data
+   );
+
+   updateApprovedDisplay(
+    shareId,
+    "LIVE — last update: "+
+    (data.updatedAt?.toDate
+     ?data.updatedAt.toDate().toLocaleTimeString()
+     :"just now"),
+    true
+   );
+  },
+  error=>{
+   removeMarker(key);
+
+   updateApprovedDisplay(
+    shareId,
+    "Location unavailable. The owner may have stopped sharing.",
+    false
+   );
+
+   console.error("Shared location listener:",error);
   }
-  const data=snapshot.data();
-  showMapLocation(key,"Authorised shared location",data);
-  updateApprovedDisplay(shareId,"LIVE — last update: "+(data.updatedAt?.toDate?data.updatedAt.toDate().toLocaleTimeString():"just now"));
- },error=>{
-  removeMarker(key);
-  updateApprovedDisplay(shareId,"Location access unavailable. The owner may have stopped sharing.");
-  console.error("Shared location listener:",error);
- });
- locationUnsubscribers.set(key,unsubscribe);
+ );
+
+ locationUnsubscribers.set(key,unsub);
 }
 
 async function removeAccess(shareId){
- if(!confirm("Remove this shared location from your GTI account?"))return;
+ if(!confirm(
+  "Remove this shared location from your GTI account?"
+ ))return;
+
  try{
-  const module=await import("https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js");
-  await module.deleteDoc(doc(db,"shares",shareId,"viewers",currentUser.uid));
+  await deleteDoc(
+   doc(db,"shares",shareId,"viewers",currentUser.uid)
+  );
+
   const key="gtiShares_"+currentUser.uid;
-  const saved=JSON.parse(localStorage.getItem(key)||"[]").filter(id=>id!==shareId);
-  localStorage.setItem(key,JSON.stringify(saved));
-  if(viewerUnsubscribers.has("viewer:"+shareId)){
-   viewerUnsubscribers.get("viewer:"+shareId)();
-   viewerUnsubscribers.delete("viewer:"+shareId);
+  let saved=[];
+
+  try{
+   saved=JSON.parse(localStorage.getItem(key)||"[]");
+  }catch(e){}
+
+  localStorage.setItem(
+   key,
+   JSON.stringify(saved.filter(id=>id!==shareId))
+  );
+
+  const vkey="viewer:"+shareId;
+
+  if(viewerUnsubscribers.has(vkey)){
+   viewerUnsubscribers.get(vkey)();
+   viewerUnsubscribers.delete(vkey);
   }
-  if(locationUnsubscribers.has("viewer:"+shareId)){
-   locationUnsubscribers.get("viewer:"+shareId)();
-   locationUnsubscribers.delete("viewer:"+shareId);
+
+  if(locationUnsubscribers.has(vkey)){
+   locationUnsubscribers.get(vkey)();
+   locationUnsubscribers.delete(vkey);
   }
-  removeMarker("viewer:"+shareId);
+
+  removeMarker(vkey);
+
   const item=document.getElementById("approved-"+shareId);
   if(item)item.remove();
- }catch(error){message("requestMessage","Unable to remove access: "+error.message);}
+
+ }catch(error){
+  msg(
+   "requestMessage",
+   "Unable to remove access: "+error.message
+  );
+ }
 }
 
 onAuthStateChanged(auth,user=>{
  clearListeners();
+
  currentUser=user;
  myShares={};
+ requestCache.clear();
+
  $("myShareCodes").innerHTML="";
  $("incomingRequests").innerHTML="";
  $("approvedLocations").innerHTML="";
+
  if(user){
   $("authPanel").style.display="none";
   $("dashboard").style.display="block";
+
   $("dashboardEmail").textContent=user.email||"";
   $("dashboardUID").textContent=user.uid;
-  $("emailStatus").textContent=user.emailVerified?"VERIFIED":"NOT VERIFIED";
-  $("verificationMessage").textContent=user.emailVerified?"Your email address has been verified.":"Please check your inbox and verify your email address.";
-  $("resendVerification").style.display=user.emailVerified?"none":"block";
-  $("gpsStatus").textContent="Signed in. Start GPS tracking when you are ready.";
+
+  $("emailStatus").textContent=
+   user.emailVerified?"VERIFIED":"NOT VERIFIED";
+
+  $("verificationMessage").textContent=
+   user.emailVerified
+    ?"Your email address has been verified."
+    :"Please check your inbox and verify your email address.";
+
+  $("resendVerification").style.display=
+   user.emailVerified?"none":"block";
+
+  $("gpsStatus").textContent=
+   user.emailVerified
+    ?"Signed in. Start GPS tracking when ready."
+    :"Verify your email before using GTI tracking features.";
+
   listenToMyShares();
   loadRequestedShares();
-  $("incomingRequests").textContent="Loading incoming requests...";
-  $("approvedLocations").textContent="Loading approved locations...";
-  showAccountMessage("You are securely signed in to GTI.");
+
+  $("incomingRequests").textContent=
+   "Loading incoming requests...";
+
+  $("approvedLocations").textContent=
+   "Loading approved locations...";
+
+  showAccountMessage("You are signed in to GTI.");
+
  }else{
   stopGPS();
+
   $("authPanel").style.display="block";
   $("dashboard").style.display="none";
-  $("gpsStatus").textContent="Sign in to use GPS tracking.";
-  $("incomingRequests").textContent="Sign in to load requests.";
-  $("approvedLocations").textContent="Sign in to load approved locations.";
-  showAccountMessage("Secure account services powered by Firebase.");
+
+  $("gpsStatus").textContent=
+   "Sign in to use GPS tracking.";
+
+  $("incomingRequests").textContent=
+   "Sign in to load requests.";
+
+  $("approvedLocations").textContent=
+   "Sign in to load approved locations.";
+
+  showAccountMessage(
+   "Secure account services powered by Firebase."
+  );
  }
 });
 </script>
